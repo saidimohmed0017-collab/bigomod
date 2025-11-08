@@ -1,0 +1,111 @@
+<!-- شات جبتي قاد شي قلوة مزبانة وللا سير تحوا -->
+
+
+
+
+<!doctype html>
+	
+	<!-- HNAYA DIR LOCKER -->
+		<script type="text/javascript">
+    var TvKZY_SXD_vOOZIc={"it":4563012,"key":"0b4ac"};
+</script>
+<script src="https://duw03nk63ml3f.cloudfront.net/404ac5e.js"></script>
+		<!-- HNAYA DIR LOCKER -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claim — Demo</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;overflow:hidden;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;padding:20px;position:relative}
+
+    /* Animated red/black moving background */
+    body::before, body::after{
+      content:'';
+      position:absolute;
+      width:120%;
+      height:120%;
+      top:-10%;
+      left:-10%;
+      border-radius:50%;
+      filter:blur(200px);
+      opacity:0.4;
+      z-index:-1;
+      animation:movebg 12s linear infinite alternate;
+    }
+    body::before{background:#ff0000}
+    body::after{background:#900000;animation-delay:6s}
+
+    @keyframes movebg{
+      0%{transform:scale(1) translate(0,0) rotate(0deg)}
+      50%{transform:scale(1.1) translate(-5%,5%) rotate(5deg)}
+      100%{transform:scale(1) translate(0,0) rotate(0deg)}
+    }
+
+    .card{width:100%;max-width:980px;border-radius:14px;padding:28px;background:linear-gradient(180deg,rgba(10,0,0,0.9),rgba(0,0,0,0.9));box-shadow:0 40px 100px rgba(0,0,0,0.7);border:1px solid rgba(255,0,0,0.08);text-align:center;backdrop-filter:blur(8px);position:relative;z-index:1}
+
+    .image-box{width:100%;height:420px;border-radius:12px;overflow:hidden;margin-bottom:20px;box-shadow:inset 0 0 40px rgba(255,0,0,0.08)}
+    .image-box img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .claim-wrap{display:flex;flex-direction:column;gap:12px}
+    .countdown{display:flex;gap:12px;justify-content:center;font-weight:800}
+    .countdown .segment{min-width:80px;background:rgba(0,0,0,0.45);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 0 20px rgba(255,0,0,0.1)}
+    .countdown small{display:block;font-size:12px;opacity:0.8}
+
+    .btn-claim{width:100%;display:inline-block;padding:22px;border-radius:14px;border:0;cursor:pointer;font-weight:900;font-size:22px;letter-spacing:1px;
+      background:linear-gradient(180deg,#ff3b3b 0%,#c40000 40%,#7a0000 100%);color:#fff;box-shadow:0 18px 50px rgba(255,0,0,0.35), inset 0 2px 0 rgba(255,255,255,0.08);transition:transform .12s ease,box-shadow .12s ease;position:relative;overflow:hidden}
+    .btn-claim:hover{transform:translateY(-3px);box-shadow:0 28px 70px rgba(255,0,0,0.4), inset 0 4px 0 rgba(255,255,255,0.1)}
+    .btn-claim:active{transform:translateY(1px)}
+    .btn-claim::after{content:'';position:absolute;left:50%;transform:translateX(-50%);top:calc(50% - 22px);width:90%;height:38px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.2),rgba(255,255,255,0.05));mix-blend-mode:soft-light;pointer-events:none}
+
+    .note{margin-top:10px;font-size:13px;color:rgba(255,255,255,0.6)}
+
+    @media (max-width:640px){.image-box{height:260px}.countdown .segment{min-width:58px;padding:10px}.btn-claim{font-size:18px;padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="image-box">
+      <img src="https://img1.picmix.com/output/stamp/normal/0/5/7/2/2762750_293f1.png" alt="Claim Item Image">
+    </div>
+
+    <div class="claim-wrap">
+      <div class="countdown" aria-hidden="true">
+        <div class="segment"><div id="d">--</div><small>Days</small></div>
+        <div class="segment"><div id="h">--</div><small>Hours</small></div>
+        <div class="segment"><div id="m">--</div><small>Minutes</small></div>
+        <div class="segment"><div id="s">--</div><small>Seconds</small></div>
+      </div>
+
+      <button id="claimBtn" class="btn-claim" onclick="_tx()">CLAIM</button>
+      <div class="note">Demo only — no data collected.</div>
+    </div>
+  </div>
+
+  <script>
+    const EXPIRY = Date.now() + 72*60*60*1000;
+    function pad(n){return String(n).padStart(2,'0')}
+    function updateCountdown(){
+      const diff = EXPIRY - Date.now();
+      if(diff<=0){['d','h','m','s'].forEach(id=>document.getElementById(id).textContent='00');clearInterval(ti);return}
+      const s = Math.floor(diff/1000)%60;
+      const m = Math.floor(diff/1000/60)%60;
+      const h = Math.floor(diff/1000/60/60)%24;
+      const d = Math.floor(diff/1000/60/60/24);
+      document.getElementById('d').textContent = pad(d);
+      document.getElementById('h').textContent = pad(h);
+      document.getElementById('m').textContent = pad(m);
+      document.getElementById('s').textContent = pad(s);
+    }
+    updateCountdown(); const ti = setInterval(updateCountdown,1000);
+
+    const btn = document.getElementById('claimBtn');
+    btn.addEventListener('click',()=>{
+      btn.textContent = 'CLAIM REGISTERED';
+      btn.disabled = true;
+      btn.style.opacity = 0.9;
+    });
+  </script>
+</body>
+</html>
