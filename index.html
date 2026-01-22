@@ -1,0 +1,164 @@
+<style class="custom-custom-css" id="custom-custom-css">
+        <style>
+/* ============================
+   1) FORCE-HIDE ANY LOGO / ICON
+   ============================ */
+/* broad class/id/attribute matches */
+[class*="logo"],
+[id*="logo"],
+[class*="icon"],
+[id*="icon"],
+[class*="secure"],
+[id*="secure"],
+[class*="shield"],
+[id*="shield"],
+[class*="badge"],
+[class*="header"] img,
+.header *[style*="background"],
+[role="img"][aria-label*="icon"],
+img[alt*="icon"],
+img[alt*="logo"]{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:none !important;
+  background-image:none !important;
+  border:0 !important;
+}
+
+/* hide SVGs that may be injected */
+svg, svg * {
+  display:none !important;
+  visibility:hidden !important;
+  width:0 !important;
+  height:0 !important;
+  opacity:0 !important;
+}
+
+/* remove pseudo-elements used to draw icons */
+[class*="header"]::before,[class*="header"]::after,
+[class*="logo"]::before,[class*="logo"]::after,
+[id*="logo"]::before,[id*="logo"]::after,
+[class*="icon"]::before,[class*="icon"]::after {
+  content:none !important;
+  display:none !important;
+  visibility:hidden !important;
+  width:0 !important;
+  height:0 !important;
+  opacity:0 !important;
+  background:none !important;
+}
+
+/* collapse header/logo wrappers so no empty gap remains */
+.locker-header, .header, .header-wrapper, .header-top, .locker-top,
+.locker-header-wrapper, .locker-logo-wrap, .logo-wrap,
+.locker-brand, .locker-head {
+  min-height:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  background:none !important;
+}
+
+/* hide tiny fallback 'icon' text nodes if present */
+*[role="presentation"][aria-hidden="false"][style*="display:inline"] {
+  display:none !important;
+}
+
+/* ============================
+   2) RESET OGADS TITLE OVERRIDES
+   ============================ */
+#mobile-title, .mobile-title, .title, .locker-title, .locker-header-title {
+  margin:0 !important;
+  padding:0 !important;
+  line-height:0 !important;
+  font-size:0 !important;
+  height:auto !important;
+}
+
+/* ensure your title classes can show */
+.t-all, .t-small, .t-big { display:block !important; }
+
+/* ============================
+   3) TITLE, STEPS & NOTE STYLES
+   ============================ */
+/* Title (compact, bold) */
+.t-all{
+  color:#ffffff;
+  font-family:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-align:center;
+  font-weight:800;
+  font-size:16px !important;
+  line-height:1.15 !important;
+  margin:0 0 12px 0 !important;
+  padding:0 !important;
+  letter-spacing:0.3px;
+}
+.t-all .one{ color:#ff8a00; font-weight:900; }
+.t-all .verify{ color:#23c76f; font-weight:900; }
+
+/* Steps list (compact, one-per-line) */
+.steps{
+  list-style:none;
+  padding:0;
+  margin:0 0 12px 0;
+  font-family:Poppins, system-ui, sans-serif;
+  color:#ffffff;
+}
+.steps li{
+  display:flex;
+  align-items:center;
+  margin:8px 0;              /* compact spacing */
+  font-size:15px;            /* slightly small */
+  font-weight:700;
+  line-height:1.25;
+  text-align:left;
+}
+.steps .num{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:#fff;
+  margin-right:10px;
+  background:linear-gradient(180deg,#F0880F,#F0880F);
+  box-shadow:0 4px 12px rgba(124,76,255,0.22);
+  flex:0 0 28px;
+  font-size:14px;
+}
+
+/* NOTE */
+.note{
+  margin-top:8px;
+  font-family:Poppins, system-ui, sans-serif;
+  font-size:13px;
+  text-align:center;
+  color:rgba(255,255,255,0.92);
+}
+.note b{ color:#ff2b2b; font-weight:800; }
+
+/* ============================
+   4) OPTIONAL SAFEGUARDS
+   ============================ */
+/* hide any remaining small inline icon wrappers near header/title */
+.header .icon, .title .icon, .locker .icon { display:none !important; }
+
+/* ensure no header background-image shows through title */
+.locker, .locker-root, .locker-header, .header { background-image: none !important; }
+
+/* small screens tweaks */
+@media (max-width:420px){
+  .t-all{ font-size:15px !important; line-height:1.12 !important; margin-bottom:10px !important; }
+  .steps li{ font-size:14px; margin:6px 0; }
+  .steps .num{ width:26px; height:26px; font-size:13px; margin-right:8px; }
+  .note{ font-size:12px; }
+}
+</style>
