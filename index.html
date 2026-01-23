@@ -1,164 +1,142 @@
-<style class="custom-custom-css" id="custom-custom-css">
-        <style>
-/* ============================
-   1) FORCE-HIDE ANY LOGO / ICON
-   ============================ */
-/* broad class/id/attribute matches */
-[class*="logo"],
-[id*="logo"],
-[class*="icon"],
-[id*="icon"],
-[class*="secure"],
-[id*="secure"],
-[class*="shield"],
-[id*="shield"],
-[class*="badge"],
-[class*="header"] img,
-.header *[style*="background"],
-[role="img"][aria-label*="icon"],
-img[alt*="icon"],
-img[alt*="logo"]{
-  display:none !important;
-  visibility:hidden !important;
-  opacity:0 !important;
-  width:0 !important;
-  height:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  background:none !important;
-  background-image:none !important;
-  border:0 !important;
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- CREATED BY JMIX COD4 -->
+	<!-- https://t.me/landingpagescpa -->
+
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	
+	
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PJFZEK6231"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PJFZEK6231');
+</script>
+  
+<body>
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  display: flex;
+  justify-content: center;
 }
 
-/* hide SVGs that may be injected */
-svg, svg * {
-  display:none !important;
-  visibility:hidden !important;
-  width:0 !important;
-  height:0 !important;
-  opacity:0 !important;
-}
+.cr .cover img {width:100%;}
+.cr .logo img {width:110px;height:110px;border:1px solid #ddd;margin-top:-30px;border-radius:5px;}
+.cr .logo {display:flex;}
+.cr .logo .info {padding:15px 0 0 15px;}
+.det {display:flex;margin:20px 0;}
+.det .item {width:100%;text-align:center;font-size:.9rem;}
+.btn-down {all:unset;width:100%;background:#000;border:none;color:#fff;padding:10px 0;border-radius:34px;margin:10px 0 20px 0;text-align:center;}
+.bad {display:flex;overflow:scroll;color:#666;}
+.bad div {margin-right:10px;padding:4px 8px;border:1.3px solid #ccc;font-size:.8rem;white-space:nowrap;border-radius:5px;}
+.v9 {background-image:url("https://www.incredibox.com/img/down-v9-artwork.jpg");padding:40px 0;background-position:center;background-size:cover;}
 
-/* remove pseudo-elements used to draw icons */
-[class*="header"]::before,[class*="header"]::after,
-[class*="logo"]::before,[class*="logo"]::after,
-[id*="logo"]::before,[id*="logo"]::after,
-[class*="icon"]::before,[class*="icon"]::after {
-  content:none !important;
-  display:none !important;
-  visibility:hidden !important;
-  width:0 !important;
-  height:0 !important;
-  opacity:0 !important;
-  background:none !important;
-}
+p {font-size:.85rem;color:#777;}
+h1 {font-size:1.6rem;}
+h2 {font-size:1.4rem;}
+h3 {font-size:1.25rem;}
+h4 {color:#eee;font-size:1rem;margin-bottom:12px;}
 
-/* collapse header/logo wrappers so no empty gap remains */
-.locker-header, .header, .header-wrapper, .header-top, .locker-top,
-.locker-header-wrapper, .locker-logo-wrap, .logo-wrap,
-.locker-brand, .locker-head {
-  min-height:0 !important;
-  height:auto !important;
-  padding:0 !important;
-  margin:0 !important;
-  border:0 !important;
-  background:none !important;
-}
 
-/* hide tiny fallback 'icon' text nodes if present */
-*[role="presentation"][aria-hidden="false"][style*="display:inline"] {
-  display:none !important;
-}
-
-/* ============================
-   2) RESET OGADS TITLE OVERRIDES
-   ============================ */
-#mobile-title, .mobile-title, .title, .locker-title, .locker-header-title {
-  margin:0 !important;
-  padding:0 !important;
-  line-height:0 !important;
-  font-size:0 !important;
-  height:auto !important;
-}
-
-/* ensure your title classes can show */
-.t-all, .t-small, .t-big { display:block !important; }
-
-/* ============================
-   3) TITLE, STEPS & NOTE STYLES
-   ============================ */
-/* Title (compact, bold) */
-.t-all{
-  color:#ffffff;
-  font-family:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  text-align:center;
-  font-weight:800;
-  font-size:16px !important;
-  line-height:1.15 !important;
-  margin:0 0 12px 0 !important;
-  padding:0 !important;
-  letter-spacing:0.3px;
-}
-.t-all .one{ color:#ff8a00; font-weight:900; }
-.t-all .verify{ color:#23c76f; font-weight:900; }
-
-/* Steps list (compact, one-per-line) */
-.steps{
-  list-style:none;
-  padding:0;
-  margin:0 0 12px 0;
-  font-family:Poppins, system-ui, sans-serif;
-  color:#ffffff;
-}
-.steps li{
-  display:flex;
-  align-items:center;
-  margin:8px 0;              /* compact spacing */
-  font-size:15px;            /* slightly small */
-  font-weight:700;
-  line-height:1.25;
-  text-align:left;
-}
-.steps .num{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  color:#fff;
-  margin-right:10px;
-  background:linear-gradient(180deg,#F0880F,#F0880F);
-  box-shadow:0 4px 12px rgba(124,76,255,0.22);
-  flex:0 0 28px;
-  font-size:14px;
-}
-
-/* NOTE */
-.note{
-  margin-top:8px;
-  font-family:Poppins, system-ui, sans-serif;
-  font-size:13px;
-  text-align:center;
-  color:rgba(255,255,255,0.92);
-}
-.note b{ color:#ff2b2b; font-weight:800; }
-
-/* ============================
-   4) OPTIONAL SAFEGUARDS
-   ============================ */
-/* hide any remaining small inline icon wrappers near header/title */
-.header .icon, .title .icon, .locker .icon { display:none !important; }
-
-/* ensure no header background-image shows through title */
-.locker, .locker-root, .locker-header, .header { background-image: none !important; }
-
-/* small screens tweaks */
-@media (max-width:420px){
-  .t-all{ font-size:15px !important; line-height:1.12 !important; margin-bottom:10px !important; }
-  .steps li{ font-size:14px; margin:6px 0; }
-  .steps .num{ width:26px; height:26px; font-size:13px; margin-right:8px; }
-  .note{ font-size:12px; }
-}
+footer {background:#252525;padding:30px 0;margin-top:40px;color:#a1a1a1;font-size:.9rem;}
 </style>
+<br><br>
+
+
+<div class="cr" >
+	<div class="cover" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlotCFpKq80QFm0tS50AvHeLV8b8oy_Io6u7_UgW-JE5A6XcZb4X2MjmI&s=10" ></div>
+	<div class="container-md" >
+		<div class="logo" >
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEiZj_9ZSrEjFbx6E22UMOyF5YErCLl5glSa89w1dYm2M9-qOEeWBeXOL7K0FdqMyWGXjHUL4hdybcU2JjzRsZibaRyxVZT2CDW02ixjuQl2NT7Me_pW28n32vL_nnnuQ1FIaH1CMsB5LsdK3EEaYHy9hvg2C4kLr3u_ZJ6u8p_Pr_lNNLOHUPCI4C1WE6w" >
+			<div class="info" >
+				<h1>HYTALE MOBILE</h1>
+				<small>HYPIXEL STUDIOS </small>
+			</div>
+		</div>
+		<div class="det" >
+			<div class="item" >
+				<div class="icon" >4.7 <i class="bi bi-star" ></i></div>
+				<div>1M reviews</div>
+			</div>
+			<div class="item" >
+				<div class="icon" ><i class="bi bi-download" ></i></div>
+				<div>120MB</div>
+			</div>
+			<div class="item" >
+				<div class="icon" >50K</div>
+				<div>Downloads</div>
+			</div>
+		</div>
+		<div>
+		
+		
+				<!-- CPA (Bdl Dik Oncklick B code Dyalk) -->
+			<button  class="btn-down"   onclick="location.href='https://lockedapp.org/cl/i/qnkppw';".fadeIn()">Download</button>
+		
+		
+	
+		</div>
+		<h2>About this game</h2>
+		<p>Roblox lite is an immersive online universe where you can create, share, and play games designed by millions of players worldwide. Explore countless worlds, take part in unique adventures, and enjoy endless creativity — all from your Android device. Build your own experiences or join others and discover why Roblox is one of the most popular platforms for gamers of all ages.</p>
+		<div class="bad" >
+			<div>#1 top games 2024</div> 
+			<div>#lite</div>
+			<div>#roblox</div>
+		</div>
+		<br> 
+		
+	</div>
+
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8cf5a9ef-cd13-43a4-896c-f3741bcb303e/dlaea9q-d148c80c-feeb-448c-bd29-887550e20d47.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi84Y2Y1YTllZi1jZDEzLTQzYTQtODk2Yy1mMzc0MWJjYjMwM2UvZGxhZWE5cS1kMTQ4YzgwYy1mZWViLTQ0OGMtYmQyOS04ODc1NTBlMjBkNDcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WMcnDjQu_RtaMWSjLzbysGwYnJ0BReGgD1MnO7D9Wh4" class="w-100" >
+		
+	<div class="container-md" >
+<br>
+		<h2>So ROBLOX LITE</h2>
+		<h3> PLAY WITH FRIENDS AND ONLINE</h3>
+		<p>Gamers who are familiar and experienced with creative sandbox experiences will enjoy Roblox lite the most. It allows players to explore, build, and share unique worlds created by others — all while enjoying endless gameplay possibilities.</p>
+		
+		<h3>REDESIGNED SET PIECES</h3>
+		<p>Gamers who are familiar and experienced with creative sandbox experiences will enjoy Roblox lite the most. It allows players to explore, build, and share unique worlds created by others — all while enjoying endless gameplay possibilities.</p>
+		
+	</div>
+	
+	<footer>
+		<div class="container-md" >
+			<h4>ROBLOX !</h4>
+			<div class="row" >
+				<div class="col-6" >
+					<div class="mb-2" >About game</div>
+					<div class="mb-2" >roblox mobile</div>
+					<div class="mb-2" >Free download</div>
+				</div>
+				<div class="col-6" >
+					<div class="mb-2" >Help</div>
+					<div class="mb-2" >News</div>
+				</div>
+			</div>
+			<hr>
+			<center>&copy; 2025 Roblox Corporation EC Inc.</center>
+			</div>
+	</footer>
+	
+</div></body></html>
