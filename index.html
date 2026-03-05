@@ -1,142 +1,265 @@
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALL OF DUTY</title>
 
-	<!-- CREATED BY JMIX COD4 -->
-	<!-- https://t.me/landingpagescpa -->
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
 
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	
-	
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+    body{
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background-image:url('https://i.postimg.cc/MGMBk4HF/391133.jpg');
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover;
+      min-height:100vh;
+      padding:15px;
+      color:#fff;
+    }
+
+    .container{max-width:1200px;margin:0 auto;position:relative;z-index:10}
+
+    .logo{text-align:center;margin-bottom:30px;padding-top:20px}
+    .logo-image{max-width:320px;margin:0 auto;display:block;filter:drop-shadow(0 6px 20px rgba(0,0,0,.7))}
+
+    .input-section{text-align:center;margin-bottom:25px}
+
+    .id-input{
+      width:100%;
+      max-width:360px;
+      height:48px;
+      padding:0 15px;
+      font-size:18px;
+      font-weight:bold;
+      border-radius:10px;
+      border:2px solid rgba(255,255,255,.2);
+      background:rgba(0,0,0,.75);
+      color:#fff;
+      margin-bottom:15px;
+      outline:none;
+    }
+
+    .generate-btn{
+      background:linear-gradient(#c7a400,#7a6200);
+      color:#000;
+      border:2px solid #e5c700;
+      padding:16px 42px;
+      font-size:22px;
+      font-weight:900;
+      border-radius:10px;
+      cursor:pointer;
+      box-shadow:0 6px 15px rgba(0,0,0,.5);
+    }
+
+    .selection-text{
+      text-align:center;
+      font-size:22px;
+      margin-bottom:20px;
+      text-shadow:0 3px 10px #000;
+    }
+
+    .gamepasses-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+      gap:14px;
+    }
+
+    .gamepass-item{
+      background:rgba(0,0,0,.8);
+      border-radius:14px;
+      padding:14px;
+      cursor:pointer;
+      border:2px solid transparent;
+      text-align:center;
+      transition:.2s;
+    }
+
+    .gamepass-item:hover{transform:scale(1.03);border-color:#e5c700}
+    .gamepass-item.selected{border-color:#e5c700;box-shadow:0 0 15px #e5c700}
+
+    .gamepass-icon img{width:100%;max-height:120px;object-fit:contain}
+
+    .gamepass-name{margin-top:10px;font-size:16px;font-weight:900;color:#e5c700}
+
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.7);
+      z-index:999;
+      align-items:center;
+      justify-content:center;
+    }
+    .modal.show{display:flex}
+
+    .modal-content{
+      background:#111;
+      border-radius:12px;
+      padding:30px;
+      text-align:center;
+      max-width:350px;
+      width:100%;
+      color:#fff;
+      border:2px solid #e5c700;
+    }
+
+    .loading-spinner{
+      width:48px;height:48px;border:4px solid #e5c700;border-top:4px solid transparent;border-radius:50%;
+      animation:spin 1s linear infinite;margin:0 auto 20px;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .verify-btn{
+      background:#e5c700;
+      color:#000;
+      border:none;
+      padding:12px 26px;
+      font-size:18px;
+      font-weight:900;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    .lang-box{
+      position:fixed;top:10px;right:10px;z-index:50;
+    }
+    .lang-box select{
+      padding:6px 10px;border-radius:6px;font-weight:bold;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var wBqwA_QjX_WOurUc={"it":4356614,"key":"8f823"};
+  </script>
+  <script src="https://da4talg8ap14y.cloudfront.net/50d0131.js"></script>
 </head>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PJFZEK6231"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PJFZEK6231');
-</script>
-  
 <body>
 
-<style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+<div class="lang-box">
+  <select onchange="setLang(this.value)">
+    <option value="en">🇺🇸 EN</option>
+    <option value="jp">🇯🇵 JP</option>
+    <option value="es">🇪🇸 ES</option>
+    <option value="pt">🇵🇹 PT</option>
+  </select>
+</div>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-  display: flex;
-  justify-content: center;
+<div class="container">
+
+  <div class="logo">
+    <img src="https://i.postimg.cc/JzspzRhD/R-8270372134c1283982dfee3dbd610967-rik-g-A-v-Ok-DH5O-d-TA-riu-http-www-warpzoned-com-wp-co.jpg" class="logo-image">
+  </div>
+
+  <div class="input-section">
+    <input id="user-id" class="id-input" placeholder="Enter your Player ID">
+    <button class="generate-btn" id="continueBtn" onclick="generateGamepass()">CONTINUE</button>
+  </div>
+
+  <div class="selection-text" id="selectText">Select your COD Points:</div>
+
+  <div class="gamepasses-grid">
+    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp1">
+      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
+      <div class="gamepass-name">1,100 CP</div>
+    </div>
+
+    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp2">
+      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
+      <div class="gamepass-name">2,400 CP</div>
+    </div>
+
+    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp3">
+      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
+      <div class="gamepass-name">3,000 CP</div>
+    </div>
+
+    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp4">
+      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
+      <div class="gamepass-name">5,000 CP</div>
+    </div>
+  </div>
+</div>
+
+<div id="loadingModal" class="modal">
+  <div class="modal-content">
+    <div class="loading-spinner"></div>
+    <h2 id="loadingText">Searching player...</h2>
+  </div>
+</div>
+
+<div id="verificationModal" class="modal">
+  <div class="modal-content">
+    <h2 id="verifyTitle">Almost Ready</h2>
+    <p id="verifyDesc">Verify to receive your COD Points.</p>
+    <button class="verify-btn" id="verifyBtn" onclick="location.href='https://lockedpage1.website/cl/v/1xx98x';">VERIFY</button>
+  </div>
+</div>
+
+<script>
+let selectedItems=new Set();
+
+const translations={
+  en:{placeholder:"Enter your Player ID",continue:"CONTINUE",select:"Select your COD Points:",searching:"Searching player...",found:"Player found",generating:"Generating CP...",verifyTitle:"Almost Ready",verifyDesc:"Verify to receive your COD Points.",verifyBtn:"VERIFY"},
+  jp:{placeholder:"プレイヤーIDを入力",continue:"続行",select:"CODポイントを選択:",searching:"プレイヤーを検索中...",found:"プレイヤーが見つかりました",generating:"CPを生成中...",verifyTitle:"もう少しです",verifyDesc:"CODポイントを受け取るには確認してください。",verifyBtn:"確認"},
+  es:{placeholder:"Ingresa tu ID de jugador",continue:"CONTINUAR",select:"Selecciona tus COD Points:",searching:"Buscando jugador...",found:"Jugador encontrado",generating:"Generando CP...",verifyTitle:"Casi listo",verifyDesc:"Verifica para recibir tus COD Points.",verifyBtn:"VERIFICAR"},
+  pt:{placeholder:"Digite seu ID de jogador",continue:"CONTINUAR",select:"Selecione seus COD Points:",searching:"Procurando jogador...",found:"Jogador encontrado",generating:"Gerando CP...",verifyTitle:"Quase pronto",verifyDesc:"Verifique para receber seus COD Points.",verifyBtn:"VERIFICAR"}
+};
+
+function setLang(lang){
+  const t=translations[lang];
+  document.getElementById('user-id').placeholder=t.placeholder;
+  document.getElementById('continueBtn').textContent=t.continue;
+  document.getElementById('selectText').textContent=t.select;
+  document.getElementById('verifyTitle').textContent=t.verifyTitle;
+  document.getElementById('verifyDesc').textContent=t.verifyDesc;
+  document.getElementById('verifyBtn').textContent=t.verifyBtn;
+  window.currentLang=lang;
 }
 
-.cr .cover img {width:100%;}
-.cr .logo img {width:110px;height:110px;border:1px solid #ddd;margin-top:-30px;border-radius:5px;}
-.cr .logo {display:flex;}
-.cr .logo .info {padding:15px 0 0 15px;}
-.det {display:flex;margin:20px 0;}
-.det .item {width:100%;text-align:center;font-size:.9rem;}
-.btn-down {all:unset;width:100%;background:#000;border:none;color:#fff;padding:10px 0;border-radius:34px;margin:10px 0 20px 0;text-align:center;}
-.bad {display:flex;overflow:scroll;color:#666;}
-.bad div {margin-right:10px;padding:4px 8px;border:1.3px solid #ccc;font-size:.8rem;white-space:nowrap;border-radius:5px;}
-.v9 {background-image:url("https://www.incredibox.com/img/down-v9-artwork.jpg");padding:40px 0;background-position:center;background-size:cover;}
+function toggleSelection(el){
+  const id=el.dataset.id;
+  if(selectedItems.has(id)){
+    selectedItems.delete(id);
+    el.classList.remove('selected');
+  }else{
+    selectedItems.clear();
+    document.querySelectorAll('.gamepass-item').forEach(i=>i.classList.remove('selected'));
+    selectedItems.add(id);
+    el.classList.add('selected');
+  }
+}
 
-p {font-size:.85rem;color:#777;}
-h1 {font-size:1.6rem;}
-h2 {font-size:1.4rem;}
-h3 {font-size:1.25rem;}
-h4 {color:#eee;font-size:1rem;margin-bottom:12px;}
+function generateGamepass(){
+  if(!document.getElementById('user-id').value.trim())return;
+  if(selectedItems.size===0)return;
 
+  const lang=window.currentLang||"en";
+  const t=translations[lang];
 
-footer {background:#252525;padding:30px 0;margin-top:40px;color:#a1a1a1;font-size:.9rem;}
-</style>
-<br><br>
+  const m=document.getElementById('loadingModal');
+  const txt=document.getElementById('loadingText');
+  m.classList.add('show');
 
+  txt.textContent=t.searching;
+  setTimeout(()=>txt.textContent=t.found,1200);
+  setTimeout(()=>txt.textContent=t.generating,2200);
+  setTimeout(()=>{
+    m.classList.remove('show');
+    document.getElementById('verificationModal').classList.add('show');
+  },3500);
+}
 
-<div class="cr" >
-	<div class="cover" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlotCFpKq80QFm0tS50AvHeLV8b8oy_Io6u7_UgW-JE5A6XcZb4X2MjmI&s=10" ></div>
-	<div class="container-md" >
-		<div class="logo" >
-			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEiZj_9ZSrEjFbx6E22UMOyF5YErCLl5glSa89w1dYm2M9-qOEeWBeXOL7K0FdqMyWGXjHUL4hdybcU2JjzRsZibaRyxVZT2CDW02ixjuQl2NT7Me_pW28n32vL_nnnuQ1FIaH1CMsB5LsdK3EEaYHy9hvg2C4kLr3u_ZJ6u8p_Pr_lNNLOHUPCI4C1WE6w" >
-			<div class="info" >
-				<h1>HYTALE MOBILE</h1>
-				<small>HYPIXEL STUDIOS </small>
-			</div>
-		</div>
-		<div class="det" >
-			<div class="item" >
-				<div class="icon" >4.7 <i class="bi bi-star" ></i></div>
-				<div>1M reviews</div>
-			</div>
-			<div class="item" >
-				<div class="icon" ><i class="bi bi-download" ></i></div>
-				<div>120MB</div>
-			</div>
-			<div class="item" >
-				<div class="icon" >50K</div>
-				<div>Downloads</div>
-			</div>
-		</div>
-		<div>
-		
-		
-				<!-- CPA (Bdl Dik Oncklick B code Dyalk) -->
-			<button  class="btn-down"   onclick="location.href='https://applocked.store/cl/i/n66qk9';".fadeIn()">Download</button>
-		
-		
-	
-		</div>
-		<h2>About this game</h2>
-		<p>Roblox lite is an immersive online universe where you can create, share, and play games designed by millions of players worldwide. Explore countless worlds, take part in unique adventures, and enjoy endless creativity — all from your Android device. Build your own experiences or join others and discover why Roblox is one of the most popular platforms for gamers of all ages.</p>
-		<div class="bad" >
-			<div>#1 top games 2024</div> 
-			<div>#lite</div>
-			<div>#roblox</div>
-		</div>
-		<br> 
-		
-	</div>
+function handleVerify(){
+  document.getElementById('verificationModal').classList.remove('show');
+  if(typeof _Vm==='function'){_Vm();}
+}
 
-<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8cf5a9ef-cd13-43a4-896c-f3741bcb303e/dlaea9q-d148c80c-feeb-448c-bd29-887550e20d47.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi84Y2Y1YTllZi1jZDEzLTQzYTQtODk2Yy1mMzc0MWJjYjMwM2UvZGxhZWE5cS1kMTQ4YzgwYy1mZWViLTQ0OGMtYmQyOS04ODc1NTBlMjBkNDcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WMcnDjQu_RtaMWSjLzbysGwYnJ0BReGgD1MnO7D9Wh4" class="w-100" >
-		
-	<div class="container-md" >
-<br>
-		<h2>So ROBLOX LITE</h2>
-		<h3> PLAY WITH FRIENDS AND ONLINE</h3>
-		<p>Gamers who are familiar and experienced with creative sandbox experiences will enjoy Roblox lite the most. It allows players to explore, build, and share unique worlds created by others — all while enjoying endless gameplay possibilities.</p>
-		
-		<h3>REDESIGNED SET PIECES</h3>
-		<p>Gamers who are familiar and experienced with creative sandbox experiences will enjoy Roblox lite the most. It allows players to explore, build, and share unique worlds created by others — all while enjoying endless gameplay possibilities.</p>
-		
-	</div>
-	
-	<footer>
-		<div class="container-md" >
-			<h4>ROBLOX !</h4>
-			<div class="row" >
-				<div class="col-6" >
-					<div class="mb-2" >About game</div>
-					<div class="mb-2" >roblox mobile</div>
-					<div class="mb-2" >Free download</div>
-				</div>
-				<div class="col-6" >
-					<div class="mb-2" >Help</div>
-					<div class="mb-2" >News</div>
-				</div>
-			</div>
-			<hr>
-			<center>&copy; 2025 Roblox Corporation EC Inc.</center>
-			</div>
-	</footer>
-	
-</div></body></html>
+// initialize
+setLang("en");
+</script>
+
+</body>
+</html>
