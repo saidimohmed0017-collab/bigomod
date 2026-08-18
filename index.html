@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIGOmod - Rewards 2026</title>
-    <!-- استدعاء الخطوط وأيقونات bootstrap -->
+    <title>BIGOmod</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="icon" href="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg" type="image/webp">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <!-- FAVICON -->
     <link rel="icon" href="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg" type="image/webp">
       <meta name="description" content="BIGOmod">
   <meta name="keywords" content="bigomod">
-  <meta property="og:title" content="bigomod -  ITEMS 2026">
-  <meta property="og:description" content="bigomod -  ITEMS 2026">
+  <meta property="og:title" content="bigomod ">
+  <meta property="og:description" content="bigomod ">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -23,117 +24,88 @@
             background-color: #0c0f12;
             background-image: radial-gradient(circle, rgba(16, 21, 28, 0.9) 0%, rgba(5, 7, 10, 0.95) 100%), url('https://wallpapercave.com/wp/wp5446312.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
-            color: #ffffff; min-height: 100vh;
+            color: #ffffff; min-height: 100vh; position: relative;
         }
 
-        /* --- تصميم زر اللغة المطابق للصورة (ثابت في اليمين) --- */
-        .lang-switcher-container {
-            position: fixed; top: 20px; right: 20px; z-index: 10000;
-        }
+        /* زر اللغة: صغير + يتحرك مع الصفحة */
+        .lang-switcher-container { position: absolute; top: 15px; right: 15px; z-index: 10000; }
         .lang-pill {
             background: #000; border: 1px solid #ffd103; border-radius: 50px;
-            padding: 8px 15px; color: #fff; display: flex; align-items: center;
-            gap: 12px; cursor: pointer; min-width: 140px; transition: 0.3s;
+            padding: 5px 12px; color: #fff; display: flex; align-items: center;
+            gap: 8px; cursor: pointer; min-width: 115px; transition: 0.3s; font-size: 0.85rem;
         }
-        .lang-pill i.bi-globe { color: #ffd103; font-size: 1.2rem; }
-        .lang-pill span { font-weight: 700; font-size: 1rem; flex-grow: 1; text-align: left; }
-        .lang-pill i.bi-chevron-down { font-size: 0.9rem; }
-        
+        .lang-pill i.bi-globe { color: #ffd103; font-size: 1rem; }
+        .lang-pill span { font-weight: 700; flex-grow: 1; text-align: left; }
         .lang-dropdown {
             display: none; position: absolute; top: 110%; right: 0; width: 100%;
-            background: #111; border: 1px solid #444; border-radius: 4px; 
-            overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: #111; border: 1px solid #444; border-radius: 4px; overflow: hidden;
         }
-        .lang-dropdown div {
-            padding: 10px 15px; cursor: pointer; font-weight: bold; text-align: left;
-            font-size: 0.95rem; border-bottom: 1px solid #222;
-        }
-        .lang-dropdown div:hover { background: #0062cc; color: #fff; }
         .lang-switcher-container.active .lang-dropdown { display: block; }
+        .lang-dropdown div { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid #222; }
+        .lang-dropdown div:hover { background: #0062cc; }
 
-        .container { width: 100%; max-width: 540px; margin: 0 auto; padding: 80px 20px 40px 20px; text-align: center; }
-        .top-logo-img { max-width: 220px; margin-bottom: 20px; filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.6)); }
+        .container { width: 100%; max-width: 540px; margin: 0 auto; padding: 60px 20px 40px 20px; text-align: center; }
+        .top-logo-img { max-width: 200px; margin-bottom: 20px; filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.6)); }
         
-        .card-panel { background: rgba(15, 20, 28, 0.95); border: 2px solid #232a35; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); margin-bottom: 20px; }
+        .card-panel { background: rgba(15, 20, 28, 0.95); border: 2px solid #232a35; border-radius: 16px; padding: 25px; margin-bottom: 20px; }
         .section-label { display: block; font-size: 1.1rem; font-weight: 700; color: #ffd103; margin-bottom: 15px; text-transform: uppercase; }
-        
-        .input-box { width: 100%; background: #151a22; border: 2px solid #323d4e; border-radius: 10px; padding: 14px; color: #fff; text-align: center; font-size: 1.1rem; outline: none; transition: 0.3s; }
-        .input-box:focus { border-color: #ffd103; }
-        
+        .input-box { width: 100%; background: #151a22; border: 2px solid #323d4e; border-radius: 10px; padding: 14px; color: #fff; text-align: center; font-size: 1.1rem; outline: none; }
         .btn-action-yellow { 
             width: 100%; background: linear-gradient(to bottom, #ffd103 0%, #b38600 100%); 
-            border: none; border-bottom: 4px solid #735600; border-radius: 10px; 
-            padding: 15px; color: #000; font-weight: 900; text-transform: uppercase; cursor: pointer; font-size: 1.2rem; 
+            border: none; border-bottom: 4px solid #735600; border-radius: 10px; padding: 15px; color: #000; font-weight: 900; text-transform: uppercase; cursor: pointer; font-size: 1.2rem; 
         }
 
         .rewards-section { opacity: 0.15; pointer-events: none; transition: 0.5s; }
         .rewards-section.active { opacity: 1; pointer-events: auto; }
         .rewards-group { background: rgba(15, 20, 28, 0.9); border: 1px solid #232a35; border-radius: 16px; padding: 15px; margin-bottom: 20px; }
-        
         .grid-layout { display: grid; gap: 10px; margin-top: 10px; }
         .cp-grid { grid-template-columns: repeat(2, 1fr); }
         .weapons-grid { grid-template-columns: repeat(3, 1fr); }
 
-        .reward-card { 
-            background: #161c24; border: 2px solid #2d3746; border-radius: 12px; 
-            padding: 10px; cursor: pointer; transition: 0.3s; position: relative;
-        }
+        .reward-card { background: #161c24; border: 2px solid #2d3746; border-radius: 12px; padding: 10px; cursor: pointer; transition: 0.3s; position: relative; }
         .reward-card:hover { border-color: #ffd103; transform: translateY(-3px); }
         .reward-icon-img { width: 100%; max-height: 75px; object-fit: contain; margin-bottom: 5px; }
         .reward-amount { color: #ffd103; font-weight: 900; font-size: 0.9rem; }
         .weapon-label { font-size: 0.65rem; font-weight: bold; color: #fff; }
         .badge-new { position: absolute; top: 0; right: 0; background: #ff0000; color: #fff; font-size: 0.6rem; padding: 2px 6px; font-weight: 900; border-bottom-left-radius: 8px; z-index: 5; }
 
-        /* --- Modal Styles (تعديل الشفافية هنا) --- */
+        /* Modal Styles */
         .gen-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; justify-content: center; align-items: center; padding: 15px; }
-        
-        /* الخلفية الشفافة قليلاً مع التغبيش */
-        .gen-backdrop { 
-            position: absolute; 
-            width: 100%; height: 100%; 
-            background: rgba(0, 0, 0, 0.7); /* الشفافية المطلوبة */
-            backdrop-filter: blur(8px); /* تغبيش الخلفية لجمالية أكثر */
-            -webkit-backdrop-filter: blur(8px);
-        }
-
+        .gen-backdrop { position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); }
         .gen-box { position: relative; background: #11161d; border: 2px solid #ffd103; width: 100%; max-width: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        
         .gen-header { background: #1a212b; padding: 15px; border-bottom: 1px solid rgba(255,209,3,0.2); text-align: center; }
-        .modal-logo { height: 40px; width: auto; object-fit: contain; margin-bottom: 5px; }
-
         .gen-screen { display: none; padding: 25px; text-align: center; }
         .gen-screen.active { display: block; }
         
-        .gen-step { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; opacity: 0.3; transition: 0.4s; text-align: left; }
+        .gen-step { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; opacity: 0.3; transition: 0.4s; text-align: left; }
         #html-root[dir="rtl"] .gen-step { text-align: right; }
-        
         .gen-step.active { opacity: 1; }
         .gen-step-icon { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ffd103; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #ffd103; flex-shrink: 0; }
         .gen-step.done .gen-step-icon { background: #ffd103; color: #000; }
+        .step-text { font-size: 0.85rem; color: #cbd5e0; line-height: 1.3; }
         
         .offer-item { background: #1a212b; border: 1px solid #2d3746; border-left: 5px solid #ffd103; border-radius: 10px; padding: 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
-        #html-root[dir="rtl"] .offer-item { border-left: none; border-right: 5px solid #ffd103; text-align: right; }
-        
         .btn-start { background: #ffd103; color: #000; padding: 8px 18px; border-radius: 5px; font-weight: 900; text-decoration: none; font-size: 0.8rem; border: none; cursor: pointer; }
         
-        .status-dot { width: 8px; height: 8px; background: #ffd103; border-radius: 50%; display: inline-block; animation: pulse 1s infinite; margin-right: 5px; }
+        .status-dot { width: 10px; height: 10px; background: #ffd103; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
+        .pulsing { animation: pulse 1s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        .bigo-footer { background-color: #05070a; padding: 50px 20px; text-align: center; width: 100%; }
+        .bigo-footer .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .bigo-footer .footer-links a { color: #fff; font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+        .bigo-footer .footer-logo-wrap { margin-bottom: 15px; }
+        .bigo-footer .footer-logo-wrap img { width: 65px; height: auto; }
+        .bigo-footer .manage-cookies-btn { color: #5b636d; font-size: 0.95rem; text-decoration: none; display: block; margin-bottom: 30px; }
+        .bigo-footer .social-icons-row { display: flex; justify-content: center; gap: 30px; }
+        .bigo-footer .social-icons-row a { color: #fff; font-size: 1.6rem; }
     </style>
 </head>
 <body>
 
-    <!-- زر اللغة المطابق للصورة (الافتراضي English) -->
     <div class="lang-switcher-container" id="lang-switcher">
-        <div class="lang-pill" onclick="toggleLangMenu()">
-            <i class="bi bi-globe"></i>
-            <span id="current-lang-text">English</span>
-            <i class="bi bi-chevron-down"></i>
-        </div>
-        <div class="lang-dropdown">
-            <div onclick="changeLanguage('en')">English</div>
-            <div onclick="changeLanguage('ar')">العربية</div>
-            <div onclick="changeLanguage('fr')">Français</div>
-        </div>
+        <div class="lang-pill" onclick="toggleLangMenu()"><i class="bi bi-globe"></i><span id="current-lang-text">English</span><i class="bi bi-chevron-down"></i></div>
+        <div class="lang-dropdown"><div onclick="changeLanguage('en')">English</div><div onclick="changeLanguage('ar')">العربية</div></div>
     </div>
 
     <div class="container">
@@ -141,34 +113,23 @@
 
         <div class="card-panel" id="main-panel">
             <label class="section-label" data-i18n="l_id">Enter Player ID</label>
-            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." 
-                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." oninput="this.value = this.value.replace(/[^0-9]/g, '')">
             <p id="id-error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 8px; display: none;" data-i18n="e_id">ID must be more than 15 digits</p>
-            
             <button class="btn-action-yellow" style="margin-top:20px" onclick="startSearch()" data-i18n="b_cont">Continue</button>
-            
-            <div id="search-status" style="display:none; margin-top:15px; color:#ffd103;">
-                <span class="status-dot"></span> <span id="status-text" data-i18n="searching">Locating account...</span>
-            </div>
+            <div id="search-status" style="display:none; margin-top:15px; color:#ffd103;"><span class="status-dot pulsing"></span> <span id="status-text" data-i18n="searching">Locating account...</span></div>
         </div>
 
         <div class="rewards-section" id="rewards-panel">
-            <!-- CP Section -->
             <div class="rewards-group">
                 <div class="section-label" data-i18n="l_cp">Select COD Points (CP)</div>
                 <div class="grid-layout cp-grid">
-                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')">
-                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img"><div class="reward-amount">1,100</div></div>
-                    <div class="reward-card" onclick="openGenModal('2,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')">
-                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img"><div class="reward-amount">2,400</div></div>
-                    <div class="reward-card" onclick="openGenModal('3,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')">
-                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img"><div class="reward-amount">3,000</div></div>
-                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')">
-                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img"><div class="reward-amount">10,000</div></div>
+                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img"><div class="reward-amount">1,100</div></div>
+                    <div class="reward-card" onclick="openGenModal('2,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img"><div class="reward-amount">2,400</div></div>
+                    <div class="reward-card" onclick="openGenModal('3,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img"><div class="reward-amount">3,000</div></div>
+                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img"><div class="reward-amount">10,000</div></div>
                 </div>
             </div>
 
-            <!-- Weapons Section -->
             <div class="rewards-group">
                 <div class="section-label" data-i18n="l_wp">Select Legendary Weapon</div>
                 <div class="grid-layout weapons-grid">
@@ -180,10 +141,10 @@
                     <div class="reward-card" onclick="openGenModal('LW3', 'https://i.ibb.co/mCDyL2Cn/20260412-170040.png')"><img src="https://i.ibb.co/mCDyL2Cn/20260412-170040.png" class="reward-icon-img"><div class="weapon-label">LW3</div></div>
                     <div class="reward-card" onclick="openGenModal('PP19 Bizon', 'https://i.ibb.co/GhQV37z/20260416-013642.png')"><img src="https://i.ibb.co/GhQV37z/20260416-013642.png" class="reward-icon-img"><div class="weapon-label">PP19 Bizon</div></div>
                     <div class="reward-card" onclick="openGenModal('KRM-262', 'https://i.ibb.co/rKQrMsd9/20260416-013615.png')"><img src="https://i.ibb.co/rKQrMsd9/20260416-013615.png" class="reward-icon-img"><div class="weapon-label">KRM-262</div></div>
-                    <div class="reward-card" onclick="openGenModal('Grau 5.56', 'https://i.ibb.co/bjmZKgBB/20260804-151840.png')"><img src="https://i.ibb.co/bjmZKgBB/20260804-151840.png" class="reward-icon-img"><div class="weapon-label">Grau 5.56</div></div>
-                    <div class="reward-card" onclick="openGenModal('M13', 'https://i.ibb.co/ycqZhCxP/20260804-152158.png')"><span class="badge-new">NEW</span><img src="https://i.ibb.co/ycqZhCxP/20260804-152158.png" class="reward-icon-img"><div class="weapon-label">M13 Morningstar</div></div>
-                    <div class="reward-card" onclick="openGenModal('USS9 Soten', 'https://i.ibb.co/R447ctfb/20260804-152505.png')"><span class="badge-new">NEW</span><img src="https://i.ibb.co/R447ctfb/20260804-152505.png" class="reward-icon-img"><div class="weapon-label">USS9 - Soten</div></div>
-                    <div class="reward-card" onclick="openGenModal('Fennec', 'https://i.ibb.co/xS67SpxY/20260804-152655.png')"><span class="badge-new">NEW</span><img src="https://i.ibb.co/xS67SpxY/20260804-152655.png" class="reward-icon-img"><div class="weapon-label">Fennec Ascended</div></div>
+                    <div class="reward-card" onclick="openGenModal('Grau 5.56', 'https://i.ibb.co/bjmZKgBB/20260804-151840.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/bjmZKgBB/20260804-151840.png" class="reward-icon-img"><div class="weapon-label">Grau 5.56</div></div>
+                    <div class="reward-card" onclick="openGenModal('M13 Morningstar', 'https://i.ibb.co/ycqZhCxP/20260804-152158.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/ycqZhCxP/20260804-152158.png" class="reward-icon-img"><div class="weapon-label">M13 Morningstar</div></div>
+                    <div class="reward-card" onclick="openGenModal('USS9 - Soten Ranka', 'https://i.ibb.co/R447ctfb/20260804-152505.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/R447ctfb/20260804-152505.png" class="reward-icon-img"><div class="weapon-label">USS9 - Soten Ranka</div></div>
+                    <div class="reward-card" onclick="openGenModal('Fennec - Ascended', 'https://i.ibb.co/xS67SpxY/20260804-152655.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/xS67SpxY/20260804-152655.png" class="reward-icon-img"><div class="weapon-label">Fennec - Ascended</div></div>
                 </div>
             </div>
         </div>
@@ -194,112 +155,96 @@
         <div class="gen-backdrop"></div>
         <div class="gen-box">
             <div class="gen-header">
-                <img src="https://i.ibb.co/gM9fPK1N/20260807-125649.png" class="modal-logo">
-                <div style="font-weight:900; color:#ffd103; font-size:0.9rem;" data-i18n="m_head">Reward Delivery System</div>
+                <div style="font-weight:900; color:#ffd103; font-size:1rem;" data-i18n="m_head">Reward Delivery System</div>
             </div>
-
             <div id="screen-1" class="gen-screen active">
                 <div style="background:#1a212b; padding:15px; border-radius:15px; margin-bottom:15px;">
-                    <img id="selected-item-img" src="" style="width:80px; height:80px; object-fit:contain;">
+                    <img id="selected-item-img" src="" style="width:120px; height:80px; object-fit:contain;">
                     <h3 id="selected-item-name" style="color:#ffd103; margin-top:10px;">Item Name</h3>
                 </div>
                 <button class="btn-action-yellow" onclick="startProcessing()" data-i18n="b_conf">Confirm Transfer</button>
             </div>
-
             <div id="screen-2" class="gen-screen">
-                <div class="gen-step" id="step-1"><div class="gen-step-icon">1</div><div data-i18n="s_1">Encrypting data...</div></div>
-                <div class="gen-step" id="step-2"><div class="gen-step-icon">2</div><div data-i18n="s_2">Preparing reward...</div></div>
-                <div class="gen-step" id="step-3"><div class="gen-step-icon">3</div><div data-i18n="s_3">Finalizing transfer...</div></div>
+                <div class="gen-step" id="step-1"><div class="gen-step-icon">1</div><div class="step-text" data-i18n="s_1">Establishing secure AES-256 encryption with central server...</div></div>
+                <div class="gen-step" id="step-2"><div class="gen-step-icon">2</div><div class="step-text" data-i18n="s_2">Synchronizing reward metadata with player unique profile ID...</div></div>
+                <div class="gen-step" id="step-3"><div class="gen-step-icon">3</div><div class="step-text" data-i18n="s_3">Finalizing data packet injection and validating transaction hash...</div></div>
             </div>
-
             <div id="screen-3" class="gen-screen">
                 <h3 style="color:#ffd103;" data-i18n="v_title">Security Verification</h3>
                 <p style="font-size:0.8rem; color:#a0aab5; margin-bottom:15px;" data-i18n="v_desc">Complete one task below to receive your reward immediately.</p>
                 <div id="offer-container"></div>
-                <div style="margin-top:10px; font-size:0.8rem; color:#ffd103;">
-                    <span class="status-dot"></span> <span data-i18n="waiting">Waiting for completion...</span>
-                </div>
+                <div style="margin-top:10px; font-size:0.8rem; color:#ffd103;"><span class="status-dot pulsing"></span> <span data-i18n="waiting">Waiting for manual verification status update from central server...</span></div>
             </div>
         </div>
     </div>
 
+    <footer class="bigo-footer">
+        <div class="footer-links"><a href="#">Parent's Guide</a><a href="#">Terms of Use</a><a href="#">Privacy Policy</a></div>
+        <div class="footer-logo-wrap"><img src="https://i.ibb.co/pj0VBRGx/Picsart-26-08-07-12-47-37-201.png" alt="bigomod logo"></div>
+        <a href="#" class="manage-cookies-btn">Manage Cookies</a>
+        <div class="social-icons-row"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div>
+    </footer>
+
     <script>
-        /* --- اللغات --- */
         const langs = {
             en: { 
-                btnText: "English", l_id: "Enter Player ID", e_id: "ID must be more than 15 digits", b_cont: "Continue", searching: "Locating account...",
-                l_cp: "Select COD Points (CP)", l_wp: "Select Legendary Weapon", m_head: "Reward Delivery System", b_conf: "Confirm Transfer",
-                s_1: "Encrypting data...", s_2: "Preparing reward...", s_3: "Finalizing transfer...", v_title: "Security Verification", v_desc: "Complete one task below to receive your reward immediately.", waiting: "Waiting for completion..."
+                btnText: "English", l_id: "Enter Player ID", e_id: "ID too short", b_cont: "Continue", searching: "Locating account...", l_cp: "Select COD Points (CP)", l_wp: "Select Legendary Weapon", m_head: "Reward Delivery System", b_conf: "Confirm Transfer", 
+                s_1: "Establishing secure AES-256 encryption with central server...", 
+                s_2: "Synchronizing reward metadata with player unique profile ID...", 
+                s_3: "Finalizing data packet injection and validating transaction hash...", 
+                v_title: "Verification", v_desc: "Complete one task to receive reward.", 
+                waiting: "Waiting for manual verification status update from central server..." 
             },
             ar: { 
-                btnText: "العربية", l_id: "أدخل معرف اللاعب (ID)", e_id: "المعرف يجب أن يكون أكثر من 15 رقماً", b_cont: "متابعة", searching: "جاري البحث عن الحساب...",
-                l_cp: "اختر نقاط كول اوف ديتي (CP)", l_wp: "اختر السلاح المفضل", m_head: "نظام إرسال الجوائز", b_conf: "تأكيد الإرسال",
-                s_1: "تشفير الحزمة...", s_2: "تجهيز النقل...", s_3: "جاهز للنقل...", v_title: "التحقق النهائي", v_desc: "أكمل أحد العروض أدناه لتلقي الجائزة فوراً.", waiting: "بانتظار الإكمال..."
-            },
-            fr: {
-                btnText: "Français", l_id: "ID du joueur", e_id: "L'ID doit dépasser 15 chiffres", b_cont: "Continuer", searching: "Recherche...",
-                l_cp: "Points CP", l_wp: "Armes Légendaires", m_head: "Système d'envoi", b_conf: "Confirmer",
-                s_1: "Cryptage...", s_2: "Préparation...", s_3: "Prêt...", v_title: "Vérification", v_desc: "Complétez une tâche pour recevoir le prix.", waiting: "En attente..."
+                btnText: "العربية", l_id: "أدخل معرف اللاعب (ID)", e_id: "المعرف قصير جداً", b_cont: "متابعة", searching: "جاري البحث عن الحساب...", l_cp: "اختر نقاط (CP)", l_wp: "اختر السلاح المفضل", m_head: "نظام إرسال الجوائز", b_conf: "تأكيد الإرسال", 
+                s_1: "تأسيس تشفير AES-256 آمن مع خادم النظام المركزي...", 
+                s_2: "مزامنة بيانات الجائزة مع المعرف الفريد لملف اللاعب الشخصي...", 
+                s_3: "الانتهاء من حقن حزمة البيانات والتحقق من صحة العملية رقمياً...", 
+                v_title: "التحقق النهائي", v_desc: "أكمل أحد العروض لتلقي الجائزة فوراً.", 
+                waiting: "بانتظار تحديث حالة التحقق اليدوي من الخادم المركزي للنظام..." 
             }
         };
 
-        let currentLang = 'en';
+        let currentLang = 'en', _selItem = "", _checkInterval = null;
 
-        function toggleLangMenu() {
-            document.getElementById('lang-switcher').classList.toggle('active');
-        }
-
+        function toggleLangMenu() { document.getElementById('lang-switcher').classList.toggle('active'); }
         function changeLanguage(l) {
-            currentLang = l;
-            document.getElementById('current-lang-text').innerText = langs[l].btnText;
+            currentLang = l; document.getElementById('current-lang-text').innerText = langs[l].btnText;
             document.getElementById('html-root').dir = l === 'ar' ? 'rtl' : 'ltr';
             document.querySelectorAll('[data-i18n]').forEach(el => el.innerText = langs[l][el.dataset.i18n]);
             document.getElementById('lang-switcher').classList.remove('active');
         }
 
-        /* --- منطق البحث والجوائز --- */
-        let _selItem = "";
-        let _checkInterval = null;
-
         function startSearch() {
             const idInput = document.getElementById('player-id');
-            const errorText = document.getElementById('id-error');
-            if(idInput.value.length <= 15) { errorText.style.display = 'block'; return; }
-            errorText.style.display = 'none';
+            if(idInput.value.length <= 15) { document.getElementById('id-error').style.display = 'block'; return; }
+            document.getElementById('id-error').style.display = 'none';
             document.getElementById('search-status').style.display = 'block';
-
             setTimeout(() => {
                 document.getElementById('rewards-panel').classList.add('active');
                 document.getElementById('search-status').style.color = "#2ecc71";
+                document.querySelector('.status-dot').style.backgroundColor = "#2ecc71";
+                document.querySelector('.status-dot').classList.remove('pulsing');
                 document.getElementById('status-text').innerText = (currentLang === 'ar' ? "تم العثور على الحساب!" : "Account Found!");
             }, 2000);
         }
 
         function openGenModal(name, img) {
-            _selItem = name;
-            document.getElementById('selected-item-name').innerText = name;
-            document.getElementById('selected-item-img').src = img;
-            showScreen(1);
+            _selItem = name; document.getElementById('selected-item-name').innerText = name;
+            document.getElementById('selected-item-img').src = img; showScreen(1);
             document.getElementById('gen-modal').style.display = 'flex';
         }
-
-        function showScreen(n) {
-            document.querySelectorAll('.gen-screen').forEach((s, i) => s.classList.toggle('active', (i+1)===n));
-        }
+        function showScreen(n) { document.querySelectorAll('.gen-screen').forEach((s, i) => s.classList.toggle('active', (i+1)===n)); }
 
         async function startProcessing() {
-            showScreen(2);
-            const steps = [document.getElementById('step-1'), document.getElementById('step-2'), document.getElementById('step-3')];
-            for(let s of steps) { s.classList.add('active'); await new Promise(r => setTimeout(r, 1500)); s.classList.add('done'); }
-            showScreen(3);
-            loadOffers();
-            _checkInterval = setInterval(checkLeads, 15000); 
+            showScreen(2); const steps = [document.getElementById('step-1'), document.getElementById('step-2'), document.getElementById('step-3')];
+            for(let s of steps) { s.classList.add('active'); await new Promise(r => setTimeout(r, 2200)); s.classList.add('done'); }
+            showScreen(3); loadOffers(); _checkInterval = setInterval(checkLeads, 10000); 
         }
 
         function loadOffers() {
-            const container = document.getElementById('offer-container');
-            container.innerHTML = "Loading...";
-            $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&s1=&s2=&callback=?", function(data) {
+            const container = document.getElementById('offer-container'); container.innerHTML = "Loading offers...";
+            $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&callback=?", function(data) {
                 container.innerHTML = "";
                 data.slice(0, 3).forEach(offer => {
                     container.innerHTML += `<div class="offer-item"><div><div class="offer-title" style="color:#fff; font-size:0.9rem;">${offer.anchor}</div></div><a href="${offer.url}" target="_blank" class="btn-start">Start</a></div>`;
@@ -309,14 +254,9 @@
 
         function checkLeads() {
             $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/external/check2.php?testing=0&callback=?", function (leads) {
-                if (leads.length > 0) {
-                    clearInterval(_checkInterval);
-                    document.getElementById('offer-container').innerHTML = `<div style="background:#2ecc71; color:#fff; padding:15px; border-radius:10px; font-weight:bold;">SUCCESS! ${_selItem} has been added to your account!</div>`;
-                }
+                if (leads.length > 0) { clearInterval(_checkInterval); document.getElementById('offer-container').innerHTML = `<div style="background:#2ecc71; color:#fff; padding:15px; border-radius:10px;">SUCCESS! Item added!</div>`; }
             });
         }
-
-        // إغلاق المربع عند النقر على الخلفية الشفافة
         document.querySelector('.gen-backdrop').onclick = () => { document.getElementById('gen-modal').style.display = 'none'; clearInterval(_checkInterval); };
     </script>
 </body>
