@@ -9,14 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="icon" href="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg" type="image/webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-    <!-- FAVICON -->
-    <link rel="icon" href="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg" type="image/webp">
       <meta name="description" content="BIGOmod">
   <meta name="keywords" content="bigomod">
   <meta property="og:title" content="bigomod ">
   <meta property="og:description" content="bigomod ">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Oswald', 'Cairo', sans-serif; user-select: none; }
@@ -27,7 +23,7 @@
             color: #ffffff; min-height: 100vh; position: relative;
         }
 
-        /* زر اللغة: صغير + يتحرك مع الصفحة */
+        /* زر اللغة */
         .lang-switcher-container { position: absolute; top: 15px; right: 15px; z-index: 10000; }
         .lang-pill {
             background: #000; border: 1px solid #ffd103; border-radius: 50px;
@@ -91,14 +87,15 @@
         .pulsing { animation: pulse 1s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        .bigo-footer { background-color: #05070a; padding: 50px 20px; text-align: center; width: 100%; }
-        .bigo-footer .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
-        .bigo-footer .footer-links a { color: #fff; font-weight: 700; text-decoration: none; font-size: 1.1rem; }
-        .bigo-footer .footer-logo-wrap { margin-bottom: 15px; }
-        .bigo-footer .footer-logo-wrap img { width: 65px; height: auto; }
-        .bigo-footer .manage-cookies-btn { color: #5b636d; font-size: 0.95rem; text-decoration: none; display: block; margin-bottom: 30px; }
-        .bigo-footer .social-icons-row { display: flex; justify-content: center; gap: 30px; }
-        .bigo-footer .social-icons-row a { color: #fff; font-size: 1.6rem; }
+        /* --- تعديلات الفوتر ليصبح أصغر (Compact Footer) --- */
+        .bigo-footer { background-color: #05070a; padding: 30px 20px; text-align: center; width: 100%; }
+        .bigo-footer .footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .bigo-footer .footer-links a { color: #fff; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+        .bigo-footer .footer-logo-wrap { margin-bottom: 12px; }
+        .bigo-footer .footer-logo-wrap img { width: 50px; height: auto; } /* تصغير شعار M */
+        .bigo-footer .manage-cookies-btn { color: #5b636d; font-size: 0.8rem; text-decoration: none; display: block; margin-bottom: 20px; }
+        .bigo-footer .social-icons-row { display: flex; justify-content: center; gap: 20px; }
+        .bigo-footer .social-icons-row a { color: #fff; font-size: 1.3rem; } /* تصغير أيقونات التواصل */
     </style>
 </head>
 <body>
