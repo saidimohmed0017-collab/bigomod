@@ -1,260 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" id="html-root" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIGOmod</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="icon" href="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg" type="image/webp">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-      <meta name="description" content="BIGOmod">
-  <meta name="keywords" content="bigomod">
-  <meta property="og:title" content="bigomod ">
-  <meta property="og:description" content="bigomod ">
+    
+    <!-- العنوان الذي يظهر في المتصفح -->
+    <title>bigomod.com</title>
 
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Oswald', 'Cairo', sans-serif; user-select: none; }
-        body {
-            background-color: #0c0f12;
-            background-image: radial-gradient(circle, rgba(16, 21, 28, 0.9) 0%, rgba(5, 7, 10, 0.95) 100%), url('https://wallpapercave.com/wp/wp5446312.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: #ffffff; min-height: 100vh; position: relative;
-        }
+    <!-- الأيقونة (Favicon) -->
+    <link rel="icon" href="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg" type="image/png">
 
-        /* زر اللغة */
-        .lang-switcher-container { position: absolute; top: 15px; right: 15px; z-index: 10000; }
-        .lang-pill {
-            background: #000; border: 1px solid #ffd103; border-radius: 50px;
-            padding: 5px 12px; color: #fff; display: flex; align-items: center;
-            gap: 8px; cursor: pointer; min-width: 115px; transition: 0.3s; font-size: 0.85rem;
-        }
-        .lang-pill i.bi-globe { color: #ffd103; font-size: 1rem; }
-        .lang-pill span { font-weight: 700; flex-grow: 1; text-align: left; }
-        .lang-dropdown {
-            display: none; position: absolute; top: 110%; right: 0; width: 100%;
-            background: #111; border: 1px solid #444; border-radius: 4px; overflow: hidden;
-        }
-        .lang-switcher-container.active .lang-dropdown { display: block; }
-        .lang-dropdown div { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid #222; }
-        .lang-dropdown div:hover { background: #0062cc; }
+    <!-- وسوم الـ SEO الأساسية -->
+    <meta name="description" content="bigomod">
+    <meta name="keywords" content="bigomod, bigomod.com, bigo mod, bigomod site, bigomod website">
 
-        .container { width: 100%; max-width: 540px; margin: 0 auto; padding: 60px 20px 40px 20px; text-align: center; }
-        .top-logo-img { max-width: 200px; margin-bottom: 20px; filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.6)); }
-        
-        .card-panel { background: rgba(15, 20, 28, 0.95); border: 2px solid #232a35; border-radius: 16px; padding: 25px; margin-bottom: 20px; }
-        .section-label { display: block; font-size: 1.1rem; font-weight: 700; color: #ffd103; margin-bottom: 15px; text-transform: uppercase; }
-        .input-box { width: 100%; background: #151a22; border: 2px solid #323d4e; border-radius: 10px; padding: 14px; color: #fff; text-align: center; font-size: 1.1rem; outline: none; }
-        .btn-action-yellow { 
-            width: 100%; background: linear-gradient(to bottom, #ffd103 0%, #b38600 100%); 
-            border: none; border-bottom: 4px solid #735600; border-radius: 10px; padding: 15px; color: #000; font-weight: 900; text-transform: uppercase; cursor: pointer; font-size: 1.2rem; 
-        }
+    <!-- وسوم المعاينة لوسائل التواصل الاجتماعي (Open Graph) -->
+    <meta property="og:title" content="BIGOMOD">
+    <meta property="og:description" content="bigomod">
+    <meta property="og:image" content="https://i.ibb.co/FqKVpgr3/Picsart-26-08-07-12-45-29-372.jpg">
+    <meta property="og:type" content="website">
 
-        .rewards-section { opacity: 0.15; pointer-events: none; transition: 0.5s; }
-        .rewards-section.active { opacity: 1; pointer-events: auto; }
-        .rewards-group { background: rgba(15, 20, 28, 0.9); border: 1px solid #232a35; border-radius: 16px; padding: 15px; margin-bottom: 20px; }
-        .grid-layout { display: grid; gap: 10px; margin-top: 10px; }
-        .cp-grid { grid-template-columns: repeat(2, 1fr); }
-        .weapons-grid { grid-template-columns: repeat(3, 1fr); }
+    <!-- كود إعادة التوجيه التلقائي (0 تعني فوراً) -->
+    <meta http-equiv="refresh" content="0;url=https://www.codmu.store">
 
-        .reward-card { background: #161c24; border: 2px solid #2d3746; border-radius: 12px; padding: 10px; cursor: pointer; transition: 0.3s; position: relative; }
-        .reward-card:hover { border-color: #ffd103; transform: translateY(-3px); }
-        .reward-icon-img { width: 100%; max-height: 75px; object-fit: contain; margin-bottom: 5px; }
-        .reward-amount { color: #ffd103; font-weight: 900; font-size: 0.9rem; }
-        .weapon-label { font-size: 0.65rem; font-weight: bold; color: #fff; }
-        .badge-new { position: absolute; top: 0; right: 0; background: #ff0000; color: #fff; font-size: 0.6rem; padding: 2px 6px; font-weight: 900; border-bottom-left-radius: 8px; z-index: 5; }
-
-        /* Modal Styles */
-        .gen-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; justify-content: center; align-items: center; padding: 15px; }
-        .gen-backdrop { position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); }
-        .gen-box { position: relative; background: #11161d; border: 2px solid #ffd103; width: 100%; max-width: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        .gen-header { background: #1a212b; padding: 15px; border-bottom: 1px solid rgba(255,209,3,0.2); text-align: center; }
-        .gen-screen { display: none; padding: 25px; text-align: center; }
-        .gen-screen.active { display: block; }
-        
-        .gen-step { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; opacity: 0.3; transition: 0.4s; text-align: left; }
-        #html-root[dir="rtl"] .gen-step { text-align: right; }
-        .gen-step.active { opacity: 1; }
-        .gen-step-icon { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ffd103; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #ffd103; flex-shrink: 0; }
-        .gen-step.done .gen-step-icon { background: #ffd103; color: #000; }
-        .step-text { font-size: 0.85rem; color: #cbd5e0; line-height: 1.3; }
-        
-        .offer-item { background: #1a212b; border: 1px solid #2d3746; border-left: 5px solid #ffd103; border-radius: 10px; padding: 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
-        .btn-start { background: #ffd103; color: #000; padding: 8px 18px; border-radius: 5px; font-weight: 900; text-decoration: none; font-size: 0.8rem; border: none; cursor: pointer; }
-        
-        .status-dot { width: 10px; height: 10px; background: #ffd103; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
-        .pulsing { animation: pulse 1s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
-        /* --- تعديلات الفوتر ليصبح أصغر (Compact Footer) --- */
-        .bigo-footer { background-color: #05070a; padding: 30px 20px; text-align: center; width: 100%; }
-        .bigo-footer .footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .bigo-footer .footer-links a { color: #fff; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-        .bigo-footer .footer-logo-wrap { margin-bottom: 12px; }
-        .bigo-footer .footer-logo-wrap img { width: 50px; height: auto; } /* تصغير شعار M */
-        .bigo-footer .manage-cookies-btn { color: #5b636d; font-size: 0.8rem; text-decoration: none; display: block; margin-bottom: 20px; }
-        .bigo-footer .social-icons-row { display: flex; justify-content: center; gap: 20px; }
-        .bigo-footer .social-icons-row a { color: #fff; font-size: 1.3rem; } /* تصغير أيقونات التواصل */
-    </style>
+    <script type="text/javascript">
+        // إعادة توجيه احتياطية عبر JavaScript
+        window.location.href = "https://www.codmu.store";
+    </script>
 </head>
 <body>
-
-    <div class="lang-switcher-container" id="lang-switcher">
-        <div class="lang-pill" onclick="toggleLangMenu()"><i class="bi bi-globe"></i><span id="current-lang-text">English</span><i class="bi bi-chevron-down"></i></div>
-        <div class="lang-dropdown"><div onclick="changeLanguage('en')">English</div><div onclick="changeLanguage('ar')">العربية</div></div>
-    </div>
-
-    <div class="container">
-        <img src="https://i.ibb.co/gM9fPK1N/20260807-125649.png" class="top-logo-img" alt="bigo">
-
-        <div class="card-panel" id="main-panel">
-            <label class="section-label" data-i18n="l_id">Enter Player ID</label>
-            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            <p id="id-error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 8px; display: none;" data-i18n="e_id">ID must be more than 15 digits</p>
-            <button class="btn-action-yellow" style="margin-top:20px" onclick="startSearch()" data-i18n="b_cont">Continue</button>
-            <div id="search-status" style="display:none; margin-top:15px; color:#ffd103;"><span class="status-dot pulsing"></span> <span id="status-text" data-i18n="searching">Locating account...</span></div>
-        </div>
-
-        <div class="rewards-section" id="rewards-panel">
-            <div class="rewards-group">
-                <div class="section-label" data-i18n="l_cp">Select COD Points (CP)</div>
-                <div class="grid-layout cp-grid">
-                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img"><div class="reward-amount">1,100</div></div>
-                    <div class="reward-card" onclick="openGenModal('2,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img"><div class="reward-amount">2,400</div></div>
-                    <div class="reward-card" onclick="openGenModal('3,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img"><div class="reward-amount">3,000</div></div>
-                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img"><div class="reward-amount">10,000</div></div>
-                </div>
-            </div>
-
-            <div class="rewards-group">
-                <div class="section-label" data-i18n="l_wp">Select Legendary Weapon</div>
-                <div class="grid-layout weapons-grid">
-                    <div class="reward-card" onclick="openGenModal('AK117', 'https://i.ibb.co/QZxsYJH/20260426-151818.png')"><img src="https://i.ibb.co/QZxsYJH/20260426-151818.png" class="reward-icon-img"><div class="weapon-label">AK117</div></div>
-                    <div class="reward-card" onclick="openGenModal('Kilo 141', 'https://i.ibb.co/nsM5GKsq/20260426-151726.png')"><img src="https://i.ibb.co/nsM5GKsq/20260426-151726.png" class="reward-icon-img"><div class="weapon-label">Kilo 141</div></div>
-                    <div class="reward-card" onclick="openGenModal('Type 19', 'https://i.ibb.co/N6HnpbD4/20260426-151634.png')"><img src="https://i.ibb.co/N6HnpbD4/20260426-151634.png" class="reward-icon-img"><div class="weapon-label">Type 19</div></div>
-                    <div class="reward-card" onclick="openGenModal('USS 9', 'https://i.ibb.co/Z1LHwZS2/20260412-170258.png')"><img src="https://i.ibb.co/Z1LHwZS2/20260412-170258.png" class="reward-icon-img"><div class="weapon-label">USS 9</div></div>
-                    <div class="reward-card" onclick="openGenModal('CX-9', 'https://i.postimg.cc/jqXLmPZQ/photo-5962868616946453872-x-removebg-preview.png')"><img src="https://i.postimg.cc/jqXLmPZQ/photo-5962868616946453872-x-removebg-preview.png" class="reward-icon-img"><div class="weapon-label">CX-9</div></div>
-                    <div class="reward-card" onclick="openGenModal('LW3', 'https://i.ibb.co/mCDyL2Cn/20260412-170040.png')"><img src="https://i.ibb.co/mCDyL2Cn/20260412-170040.png" class="reward-icon-img"><div class="weapon-label">LW3</div></div>
-                    <div class="reward-card" onclick="openGenModal('PP19 Bizon', 'https://i.ibb.co/GhQV37z/20260416-013642.png')"><img src="https://i.ibb.co/GhQV37z/20260416-013642.png" class="reward-icon-img"><div class="weapon-label">PP19 Bizon</div></div>
-                    <div class="reward-card" onclick="openGenModal('KRM-262', 'https://i.ibb.co/rKQrMsd9/20260416-013615.png')"><img src="https://i.ibb.co/rKQrMsd9/20260416-013615.png" class="reward-icon-img"><div class="weapon-label">KRM-262</div></div>
-                    <div class="reward-card" onclick="openGenModal('Grau 5.56', 'https://i.ibb.co/bjmZKgBB/20260804-151840.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/bjmZKgBB/20260804-151840.png" class="reward-icon-img"><div class="weapon-label">Grau 5.56</div></div>
-                    <div class="reward-card" onclick="openGenModal('M13 Morningstar', 'https://i.ibb.co/ycqZhCxP/20260804-152158.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/ycqZhCxP/20260804-152158.png" class="reward-icon-img"><div class="weapon-label">M13 Morningstar</div></div>
-                    <div class="reward-card" onclick="openGenModal('USS9 - Soten Ranka', 'https://i.ibb.co/R447ctfb/20260804-152505.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/R447ctfb/20260804-152505.png" class="reward-icon-img"><div class="weapon-label">USS9 - Soten Ranka</div></div>
-                    <div class="reward-card" onclick="openGenModal('Fennec - Ascended', 'https://i.ibb.co/xS67SpxY/20260804-152655.png')"><span class="badge-new">NEW!</span><img src="https://i.ibb.co/xS67SpxY/20260804-152655.png" class="reward-icon-img"><div class="weapon-label">Fennec - Ascended</div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Generator Modal -->
-    <div id="gen-modal" class="gen-modal">
-        <div class="gen-backdrop"></div>
-        <div class="gen-box">
-            <div class="gen-header">
-                <div style="font-weight:900; color:#ffd103; font-size:1rem;" data-i18n="m_head">Reward Delivery System</div>
-            </div>
-            <div id="screen-1" class="gen-screen active">
-                <div style="background:#1a212b; padding:15px; border-radius:15px; margin-bottom:15px;">
-                    <img id="selected-item-img" src="" style="width:120px; height:80px; object-fit:contain;">
-                    <h3 id="selected-item-name" style="color:#ffd103; margin-top:10px;">Item Name</h3>
-                </div>
-                <button class="btn-action-yellow" onclick="startProcessing()" data-i18n="b_conf">Confirm Transfer</button>
-            </div>
-            <div id="screen-2" class="gen-screen">
-                <div class="gen-step" id="step-1"><div class="gen-step-icon">1</div><div class="step-text" data-i18n="s_1">Establishing secure AES-256 encryption with central server...</div></div>
-                <div class="gen-step" id="step-2"><div class="gen-step-icon">2</div><div class="step-text" data-i18n="s_2">Synchronizing reward metadata with player unique profile ID...</div></div>
-                <div class="gen-step" id="step-3"><div class="gen-step-icon">3</div><div class="step-text" data-i18n="s_3">Finalizing data packet injection and validating transaction hash...</div></div>
-            </div>
-            <div id="screen-3" class="gen-screen">
-                <h3 style="color:#ffd103;" data-i18n="v_title">Security Verification</h3>
-                <p style="font-size:0.8rem; color:#a0aab5; margin-bottom:15px;" data-i18n="v_desc">Complete one task below to receive your reward immediately.</p>
-                <div id="offer-container"></div>
-                <div style="margin-top:10px; font-size:0.8rem; color:#ffd103;"><span class="status-dot pulsing"></span> <span data-i18n="waiting">Waiting for manual verification status update from central server...</span></div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="bigo-footer">
-        <div class="footer-links"><a href="#">Parent's Guide</a><a href="#">Terms of Use</a><a href="#">Privacy Policy</a></div>
-        <div class="footer-logo-wrap"><img src="https://i.ibb.co/pj0VBRGx/Picsart-26-08-07-12-47-37-201.png" alt="bigomod logo"></div>
-        <a href="#" class="manage-cookies-btn">Manage Cookies</a>
-        <div class="social-icons-row"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div>
-    </footer>
-
-    <script>
-        const langs = {
-            en: { 
-                btnText: "English", l_id: "Enter Player ID", e_id: "ID too short", b_cont: "Continue", searching: "Locating account...", l_cp: "Select COD Points (CP)", l_wp: "Select Legendary Weapon", m_head: "Reward Delivery System", b_conf: "Confirm Transfer", 
-                s_1: "Establishing secure AES-256 encryption with central server...", 
-                s_2: "Synchronizing reward metadata with player unique profile ID...", 
-                s_3: "Finalizing data packet injection and validating transaction hash...", 
-                v_title: "Verification", v_desc: "Complete one task to receive reward.", 
-                waiting: "Waiting for manual verification status update from central server..." 
-            },
-            ar: { 
-                btnText: "العربية", l_id: "أدخل معرف اللاعب (ID)", e_id: "المعرف قصير جداً", b_cont: "متابعة", searching: "جاري البحث عن الحساب...", l_cp: "اختر نقاط (CP)", l_wp: "اختر السلاح المفضل", m_head: "نظام إرسال الجوائز", b_conf: "تأكيد الإرسال", 
-                s_1: "تأسيس تشفير AES-256 آمن مع خادم النظام المركزي...", 
-                s_2: "مزامنة بيانات الجائزة مع المعرف الفريد لملف اللاعب الشخصي...", 
-                s_3: "الانتهاء من حقن حزمة البيانات والتحقق من صحة العملية رقمياً...", 
-                v_title: "التحقق النهائي", v_desc: "أكمل أحد العروض لتلقي الجائزة فوراً.", 
-                waiting: "بانتظار تحديث حالة التحقق اليدوي من الخادم المركزي للنظام..." 
-            }
-        };
-
-        let currentLang = 'en', _selItem = "", _checkInterval = null;
-
-        function toggleLangMenu() { document.getElementById('lang-switcher').classList.toggle('active'); }
-        function changeLanguage(l) {
-            currentLang = l; document.getElementById('current-lang-text').innerText = langs[l].btnText;
-            document.getElementById('html-root').dir = l === 'ar' ? 'rtl' : 'ltr';
-            document.querySelectorAll('[data-i18n]').forEach(el => el.innerText = langs[l][el.dataset.i18n]);
-            document.getElementById('lang-switcher').classList.remove('active');
-        }
-
-        function startSearch() {
-            const idInput = document.getElementById('player-id');
-            if(idInput.value.length <= 15) { document.getElementById('id-error').style.display = 'block'; return; }
-            document.getElementById('id-error').style.display = 'none';
-            document.getElementById('search-status').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('rewards-panel').classList.add('active');
-                document.getElementById('search-status').style.color = "#2ecc71";
-                document.querySelector('.status-dot').style.backgroundColor = "#2ecc71";
-                document.querySelector('.status-dot').classList.remove('pulsing');
-                document.getElementById('status-text').innerText = (currentLang === 'ar' ? "تم العثور على الحساب!" : "Account Found!");
-            }, 2000);
-        }
-
-        function openGenModal(name, img) {
-            _selItem = name; document.getElementById('selected-item-name').innerText = name;
-            document.getElementById('selected-item-img').src = img; showScreen(1);
-            document.getElementById('gen-modal').style.display = 'flex';
-        }
-        function showScreen(n) { document.querySelectorAll('.gen-screen').forEach((s, i) => s.classList.toggle('active', (i+1)===n)); }
-
-        async function startProcessing() {
-            showScreen(2); const steps = [document.getElementById('step-1'), document.getElementById('step-2'), document.getElementById('step-3')];
-            for(let s of steps) { s.classList.add('active'); await new Promise(r => setTimeout(r, 2200)); s.classList.add('done'); }
-            showScreen(3); loadOffers(); _checkInterval = setInterval(checkLeads, 10000); 
-        }
-
-        function loadOffers() {
-            const container = document.getElementById('offer-container'); container.innerHTML = "Loading offers...";
-            $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&callback=?", function(data) {
-                container.innerHTML = "";
-                data.slice(0, 3).forEach(offer => {
-                    container.innerHTML += `<div class="offer-item"><div><div class="offer-title" style="color:#fff; font-size:0.9rem;">${offer.anchor}</div></div><a href="${offer.url}" target="_blank" class="btn-start">Start</a></div>`;
-                });
-            });
-        }
-
-        function checkLeads() {
-            $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/external/check2.php?testing=0&callback=?", function (leads) {
-                if (leads.length > 0) { clearInterval(_checkInterval); document.getElementById('offer-container').innerHTML = `<div style="background:#2ecc71; color:#fff; padding:15px; border-radius:10px;">SUCCESS! Item added!</div>`; }
-            });
-        }
-        document.querySelector('.gen-backdrop').onclick = () => { document.getElementById('gen-modal').style.display = 'none'; clearInterval(_checkInterval); };
-    </script>
+    <!-- تترك فارغة بناءً على طلبك، لكن يفضل تقنياً وضع رسالة بسيطة -->
+    <!-- "جاري تحويلك إلى الموقع..." -->
 </body>
 </html>
