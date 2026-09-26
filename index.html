@@ -1,271 +1,1155 @@
-
 <!DOCTYPE html>
 <html lang="en" id="html-root" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="icon" href="https://cdn.renderhub.com/kma/call-of-duty-mobile-logos/call-of-duty-mobile-logos-07.jpg" type="image/webp">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-      
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Oswald', 'Cairo', sans-serif; user-select: none; }
-        body {
-            background-color: #0c0f12;
-            background-image: radial-gradient(circle, rgba(16, 21, 28, 0.9) 0%, rgba(5, 7, 10, 0.95) 100%), url('https://wallpapercave.com/wp/wp5446312.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: #ffffff; min-height: 100vh; position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>welcome!</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="icon" href="https://cdn.renderhub.com/kma/call-of-duty-mobile-logos/call-of-duty-mobile-logos-07.jpg">
+<style>
+:root {
+    --yellow: #f5c400;
+    --yellow-glow: rgba(245, 196, 0, 0.35);
+    --dark-bg: #03060a;
+    --panel-bg: rgba(12, 17, 24, 0.75);
+    --border: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(245, 196, 0, 0.4);
+    --text-muted: #8b98a5;
+    --accent-red: #ff334b;
+}
 
-        /* زر اللغة */
-        .lang-switcher-container { position: absolute; top: 15px; right: 15px; z-index: 10000; }
-        .lang-pill {
-            background: #000; border: 1px solid #ffd103; border-radius: 50px;
-            padding: 5px 12px; color: #fff; display: flex; align-items: center;
-            gap: 8px; cursor: pointer; min-width: 115px; transition: 0.3s; font-size: 0.85rem;
-        }
-        .lang-pill i.bi-globe { color: #ffd103; font-size: 1rem; }
-        .lang-pill span { font-weight: 700; flex-grow: 1; text-align: left; }
-        .lang-dropdown {
-            display: none; position: absolute; top: 110%; right: 0; width: 100%;
-            background: #111; border: 1px solid #444; border-radius: 4px; overflow: hidden;
-        }
-        .lang-switcher-container.active .lang-dropdown { display: block; }
-        .lang-dropdown div { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid #222; }
-        .lang-dropdown div:hover { background: #0062cc; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container { width: 100%; max-width: 540px; margin: 0 auto; padding: 60px 20px 40px 20px; text-align: center; }
-        .top-logo-img { max-width: 200px; margin-bottom: 20px; filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.6)); }
-        
-        .card-panel { background: rgba(15, 20, 28, 0.95); border: 2px solid #232a35; border-radius: 16px; padding: 25px; margin-bottom: 20px; }
-        .section-label { display: block; font-size: 1.1rem; font-weight: 700; color: #ffd103; margin-bottom: 15px; text-transform: uppercase; }
-        .input-box { width: 100%; background: #151a22; border: 2px solid #323d4e; border-radius: 10px; padding: 14px; color: #fff; text-align: center; font-size: 1.1rem; outline: none; }
-        .btn-action-yellow { 
-            width: 100%; background: linear-gradient(to bottom, #ffd103 0%, #b38600 100%); 
-            border: none; border-bottom: 4px solid #735600; border-radius: 10px; padding: 15px; color: #000; font-weight: 900; text-transform: uppercase; cursor: pointer; font-size: 1.2rem; 
-        }
+body {
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Oswald', 'Cairo', sans-serif;
+    background: var(--dark-bg);
+    overflow-x: hidden;
+    position: relative;
+    user-select: none;
+}
 
-        .rewards-section { opacity: 0.15; pointer-events: none; transition: 0.5s; }
-        .rewards-section.active { opacity: 1; pointer-events: auto; }
-        .rewards-group { background: rgba(15, 20, 28, 0.9); border: 1px solid #232a35; border-radius: 16px; padding: 15px; margin-bottom: 20px; }
-        .grid-layout { display: grid; gap: 10px; margin-top: 10px; }
-        .cp-grid { grid-template-columns: repeat(2, 1fr); }
+/* Dynamic Background Layers */
+.bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background: url('https://wallpapercave.com/wp/wp5446312.jpg') center/cover no-repeat;
+    filter: brightness(0.35) contrast(1.1);
+    transform: scale(1.02);
+}
 
-        .reward-card { background: #161c24; border: 2px solid #2d3746; border-radius: 12px; padding: 10px; cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; }
-        .reward-card:hover { border-color: #ffd103; transform: translateY(-3px); }
-        .reward-icon-img { width: 100%; max-height: 75px; object-fit: contain; margin-bottom: 5px; }
-        .reward-amount { color: #ffd103; font-weight: 900; font-size: 0.9rem; }
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: 
+        radial-gradient(circle at 50% 20%, rgba(245, 196, 0, 0.12), transparent 45%),
+        linear-gradient(180deg, rgba(3, 6, 10, 0.5) 0%, #03060a 100%);
+}
 
-        /* تعديلات الـ Out of Stock */
-        .reward-card.out-of-stock:hover { border-color: #ff0000 !important; transform: none; }
-        .badge-out-stock {
-            position: absolute; top: 0; right: 0; background: #ff0000; color: #fff;
-            font-size: 0.6rem; padding: 3px 7px; font-weight: 900; border-bottom-left-radius: 8px;
-            z-index: 5; text-transform: uppercase;
-        }
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
 
-        /* انميشن الاهتزاز */
-        .shake-effect { animation: shake 0.4s ease-in-out; border-color: #ff0000 !important; }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20% { transform: translateX(-6px); }
-            40% { transform: translateX(6px); }
-            60% { transform: translateX(-4px); }
-            80% { transform: translateX(4px); }
-        }
+/* NAVBAR / LANG SWITCHER */
+.navbar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
 
-        /* Modal Styles */
-        .gen-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; justify-content: center; align-items: center; padding: 15px; }
-        .gen-backdrop { position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); }
-        .gen-box { position: relative; background: #11161d; border: 2px solid #ffd103; width: 100%; max-width: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        .gen-header { background: #1a212b; padding: 15px; border-bottom: 1px solid rgba(255,209,3,0.2); text-align: center; }
-        .gen-screen { display: none; padding: 25px; text-align: center; }
-        .gen-screen.active { display: block; }
-        
-        .gen-step { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; opacity: 0.3; transition: 0.4s; text-align: left; }
-        #html-root[dir="rtl"] .gen-step { text-align: right; }
-        .gen-step.active { opacity: 1; }
-        .gen-step-icon { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ffd103; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #ffd103; flex-shrink: 0; }
-        .gen-step.done .gen-step-icon { background: #ffd103; color: #000; }
-        .step-text { font-size: 0.85rem; color: #cbd5e0; line-height: 1.3; }
-        
-        .offer-item { background: #1a212b; border: 1px solid #2d3746; border-left: 5px solid #ffd103; border-radius: 10px; padding: 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
-        .btn-start { background: #ffd103; color: #000; padding: 8px 18px; border-radius: 5px; font-weight: 900; text-decoration: none; font-size: 0.8rem; border: none; cursor: pointer; }
-        
-        .status-dot { width: 10px; height: 10px; background: #ffd103; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
-        .pulsing { animation: pulse 1s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+.lang-switcher-container {
+    position: relative;
+    z-index: 1000;
+}
 
-        .bigo-footer { background-color: #05070a; padding: 30px 20px; text-align: center; width: 100%; }
-        .bigo-footer .footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .bigo-footer .footer-links a { color: #fff; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-        .bigo-footer .footer-logo-wrap { margin-bottom: 12px; }
-        .bigo-footer .footer-logo-wrap img { width: 90px; height: auto; }
-        .bigo-footer .manage-cookies-btn { color: #5b636d; font-size: 0.8rem; text-decoration: none; display: block; margin-bottom: 20px; }
-        .bigo-footer .social-icons-row { display: flex; justify-content: center; gap: 20px; }
-        .bigo-footer .social-icons-row a { color: #fff; font-size: 1.3rem; }
-    </style>
-<link rel="me" href="https://www.blogger.com/profile/17069023153228290428" />
+.lang-pill {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: rgba(10, 15, 22, 0.8);
+    backdrop-filter: blur(12px);
+    color: #e0e0e0;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.lang-pill:hover {
+    border-color: var(--yellow);
+    box-shadow: 0 0 15px var(--yellow-glow);
+}
+
+.lang-pill i {
+    color: var(--yellow);
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 130px;
+    padding: 6px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(10, 15, 22, 0.95);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.lang-switcher-container.active .lang-dropdown {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.lang-dropdown div {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.lang-dropdown div:hover {
+    color: #000;
+    background: var(--yellow);
+    font-weight: 700;
+}
+
+/* MAIN HERO */
+.hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px 60px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    text-align: center;
+}
+
+/* LOGO */
+.logo-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.logo-wrap::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 160px;
+    height: 60px;
+    transform: translate(-50%, -50%);
+    background: var(--yellow);
+    filter: blur(40px);
+    opacity: 0.25;
+    z-index: -1;
+}
+
+.top-logo-img {
+    display: block;
+    width: 180px;
+    max-height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 15px rgba(0,0,0,0.8));
+}
+
+.hero-subtitle {
+    margin: 0 auto 24px;
+    max-width: 360px;
+    color: var(--text-muted);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* CARD PANEL */
+.card-panel {
+    position: relative;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-align: left;
+    overflow: hidden;
+}
+
+#html-root[dir="rtl"] .card-panel {
+    text-align: right;
+}
+
+.card-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+}
+
+.input-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+#html-root[dir="rtl"] .input-heading {
+    flex-direction: row-reverse;
+}
+
+.input-heading i {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #000;
+    background: var(--yellow);
+    font-size: 0.95rem;
+    box-shadow: 0 0 12px var(--yellow-glow);
+}
+
+.section-label {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.input-box {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    outline: none;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.input-box::placeholder {
+    color: #525d68;
+}
+
+.input-box:focus {
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 3px rgba(245, 196, 0, 0.15);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.btn-action-yellow {
+    width: 100%;
+    height: 52px;
+    margin-top: 16px;
+    border: 0;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ffe169, #f5c400 60%, #d4a300);
+    color: #05070a;
+    font-family: 'Oswald', 'Cairo', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(245, 196, 0, 0.25);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-action-yellow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(245, 196, 0, 0.4);
+    filter: brightness(1.05);
+}
+
+.btn-action-yellow:active {
+    transform: translateY(1px);
+}
+
+.security-note {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.72rem;
+}
+
+.security-note i {
+    color: #4cd964;
+}
+
+#id-error {
+    margin-top: 8px;
+    color: var(--accent-red);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.75rem;
+}
+
+#search-status {
+    display: none;
+    margin-top: 14px;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(245, 196, 0, 0.08);
+    border: 1px solid rgba(245, 196, 0, 0.2);
+    color: var(--yellow);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: var(--yellow);
+}
+
+.pulsing {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.75); }
+}
+
+/* FEATURES STRIP */
+.feature-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.feature {
+    padding: 12px 8px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(12, 17, 24, 0.5);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.feature i {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--yellow);
+    font-size: 1rem;
+}
+
+.feature span {
+    color: var(--text-muted);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+/* REWARDS / CP OPTIONS */
+.rewards-section {
+    display: none;
+    margin-top: 18px;
+}
+
+.rewards-section.active {
+    display: block;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rewards-group {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+}
+
+.rewards-title {
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-align: left;
+}
+
+#html-root[dir="rtl"] .rewards-title {
+    text-align: right;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.reward-card {
+    position: relative;
+    padding: 14px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.reward-card:hover {
+    border-color: var(--yellow);
+    background: rgba(245, 196, 0, 0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.reward-card.out-of-stock {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.reward-card.out-of-stock:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stock-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--accent-red);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.reward-icon-img {
+    width: 100%;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+.reward-amount {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+@keyframes outOfStockShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+.reward-card.out-of-stock.shake {
+    animation: outOfStockShake 0.4s ease-in-out;
+}
+
+/* MODALS */
+.gen-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.gen-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 4, 7, 0.85);
+    backdrop-filter: blur(12px);
+}
+
+.gen-box {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: #0a0e14;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border-color: var(--yellow);
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.gen-header {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.gen-header-title {
+    color: var(--yellow);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.gen-screen {
+    display: none;
+    padding: 24px;
+    text-align: center;
+}
+
+.gen-screen.active {
+    display: block;
+}
+
+.selected-item {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    margin-bottom: 16px;
+}
+
+#selected-item-img {
+    width: 130px;
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+}
+
+#selected-item-name {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* DELIVERY / STEPS STYLES */
+.gen-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 48px;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+#html-root[dir="rtl"] .gen-step {
+    text-align: right;
+}
+
+.gen-step + .gen-step {
+    margin-top: 14px;
+}
+
+.gen-step-icon {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.step-text {
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.gen-step.active, .gen-step.done {
+    color: #fff;
+}
+
+.gen-step.active .gen-step-icon, .gen-step.done .gen-step-icon {
+    color: #000;
+    background: var(--yellow);
+    border-color: var(--yellow);
+    box-shadow: 0 0 12px var(--yellow-glow);
+}
+
+.gen-step.processing .gen-step-icon {
+    animation: deliveryPulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes deliveryPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* OFFERS STYLING */
+.offer-item {
+    background: #1a212b;
+    border: 1px solid #2d3746;
+    border-left: 5px solid var(--yellow);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+#html-root[dir="rtl"] .offer-item {
+    text-align: right;
+    border-left: 1px solid #2d3746;
+    border-right: 5px solid var(--yellow);
+}
+
+.btn-start {
+    background: var(--yellow);
+    color: #000;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-start:hover {
+    filter: brightness(1.1);
+    color: #000;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    padding: 30px 20px 40px;
+    border-top: 1px solid var(--border);
+    background: rgba(3, 6, 10, 0.9);
+    text-align: center;
+}
+
+.footer-logo {
+    width: 80px;
+    opacity: 0.6;
+    margin-bottom: 14px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.72rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--yellow);
+}
+
+.footer-copy {
+    margin-top: 16px;
+    color: #414a52;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.68rem;
+}
+
+.footer-copy a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-copy a:hover {
+    color: var(--yellow);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
 <meta name='google-adsense-platform-domain' content='blogspot.com'/>
 </head>
+
 <body>
 
+<!-- DYNAMIC BACKGROUND -->
+<div class="bg-layer"></div>
+<div class="bg-overlay"></div>
+<div class="bg-grid"></div>
+
+<!-- NAVIGATION / LANGUAGE -->
+<header class="navbar">
     <div class="lang-switcher-container" id="lang-switcher">
-        <div class="lang-pill" onclick="toggleLangMenu()"><i class="bi bi-globe"></i><span id="current-lang-text">English</span><i class="bi bi-chevron-down"></i></div>
-        <div class="lang-dropdown"><div onclick="changeLanguage('en')">English</div><div onclick="changeLanguage('ar')">العربية</div></div>
-    </div>
-
-    <div class="container">
-        <img src="https://i.ibb.co/jYp3qsg/Call-of-Duty-Mobile-Logo-PNG-Image.png" class="top-logo-img" alt="bigo">
-
-        <div class="card-panel" id="main-panel">
-            <label class="section-label" data-i18n="l_id">Enter Player ID</label>
-            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            <p id="id-error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 8px; display: none;" data-i18n="e_id">ID must be more than 15 digits</p>
-            <button class="btn-action-yellow" style="margin-top:20px" onclick="startSearch()" data-i18n="b_cont">Continue</button>
-            <div id="search-status" style="display:none; margin-top:15px; color:#ffd103;"><span class="status-dot pulsing"></span> <span id="status-text" data-i18n="searching">Locating account...</span></div>
+        <div class="lang-pill" onclick="toggleLangMenu()">
+            <i class="bi bi-globe2"></i>
+            <span id="current-lang-text">English</span>
+            <i class="bi bi-chevron-down"></i>
         </div>
 
+        <div class="lang-dropdown">
+            <div onclick="changeLanguage('en')">English</div>
+            <div onclick="changeLanguage('ar')">العربية</div>
+        </div>
+    </div>
+</header>
+
+<!-- HERO MAIN -->
+<main class="hero">
+    <div class="container">
+
+        <!-- LOGO -->
+        <div class="logo-wrap">
+            <img src="https://logodix.com/logo/1050523.png" class="top-logo-img" alt="CODMEX">
+        </div>
+
+        <!-- SUBTITLE -->
+        <p class="hero-subtitle" data-i18n="subtitle">
+            Enter your Player ID to continue to the CODMEX player interface.
+        </p>
+
+        <!-- PLAYER ID CARD -->
+        <div class="card-panel">
+            <div class="input-heading">
+                <i class="bi bi-person-fill"></i>
+                <label class="section-label" data-i18n="l_id">
+                    Enter Player ID
+                </label>
+            </div>
+
+            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." oninput="handleIdInput(this)">
+
+            <p id="id-error" style="display:none;" data-i18n="e_id">
+                Please enter a valid Player ID.
+            </p>
+
+            <button class="btn-action-yellow" onclick="startSearch()">
+                <span data-i18n="b_cont">Continue</span>
+                <i class="bi bi-arrow-right-short" style="font-size: 1.3rem;"></i>
+            </button>
+
+            <div class="security-note">
+                <i class="bi bi-shield-check"></i>
+                <span data-i18n="secure">Secure player ID entry</span>
+            </div>
+
+            <div id="search-status">
+                <span class="status-dot pulsing"></span>
+                <span id="status-text" data-i18n="searching">Locating account...</span>
+            </div>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="feature-strip">
+            <div class="feature">
+                <i class="bi bi-lightning-charge-fill"></i>
+                <span data-i18n="fast">FAST ACCESS</span>
+            </div>
+            <div class="feature">
+                <i class="bi bi-shield-lock-fill"></i>
+                <span data-i18n="safe">SECURE</span>
+            </div>
+            <div class="feature">
+                <i class="bi bi-phone-fill"></i>
+                <span data-i18n="mobile">MOBILE READY</span>
+            </div>
+        </div>
+
+        <!-- CP OPTIONS -->
         <div class="rewards-section" id="rewards-panel">
             <div class="rewards-group">
-                <div class="section-label" data-i18n="l_cp">Select COD Points (CP)</div>
-                <div class="grid-layout cp-grid">
-                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img"><div class="reward-amount">1,100</div></div>
-                    <div class="reward-card" onclick="openGenModal('2,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img"><div class="reward-amount">2,400</div></div>
-                    <div class="reward-card" onclick="openGenModal('3,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img"><div class="reward-amount">3,000</div></div>
-                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')"><img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img"><div class="reward-amount">10,000</div></div>
-                    <div class="reward-card out-of-stock" onclick="triggerShake(this)">
-                        <span class="badge-out-stock">OUT OF STOCK</span>
-                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img">
-                        <div class="reward-amount">15,000</div>
+                <div class="rewards-title" data-i18n="l_cp">
+                    Select Your Package
+                </div>
+
+                <div class="grid-layout">
+                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">1,100 CP</div>
                     </div>
-                    <div class="reward-card out-of-stock" onclick="triggerShake(this)">
-                        <span class="badge-out-stock">OUT OF STOCK</span>
-                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img">
-                        <div class="reward-amount">20,000</div>
+
+                    <div class="reward-card" onclick="openGenModal('3,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">3,400 CP</div>
+                    </div>
+
+                    <div class="reward-card" onclick="openGenModal('6,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">6,000 CP</div>
+                    </div>
+
+                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">10,000 CP</div>
+                    </div>
+
+                    <div class="reward-card out-of-stock" aria-disabled="true" onclick="shakeOutOfStock(this)">
+                        <span class="stock-badge">Sold out</span>
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">17,000 CP</div>
+                    </div>
+
+                    <div class="reward-card out-of-stock" aria-disabled="true" onclick="shakeOutOfStock(this)">
+                        <span class="stock-badge">Sold out</span>
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">25,000 CP</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Generator Modal -->
-    <div id="gen-modal" class="gen-modal">
-        <div class="gen-backdrop"></div>
-        <div class="gen-box">
-            <div class="gen-header">
-                <div style="font-weight:900; color:#ffd103; font-size:1rem;" data-i18n="m_head">Reward Delivery System</div>
+    </div>
+</main>
+
+<!-- GENERATOR & OFFERS MODAL -->
+<div id="gen-modal" class="gen-modal">
+    <div class="gen-backdrop"></div>
+    <div class="gen-box">
+        <div class="gen-header">
+            <div class="gen-header-title" data-i18n="m_head">Reward Delivery System</div>
+        </div>
+
+        <!-- SCREEN 1: Preview -->
+        <div id="screen-1" class="gen-screen active">
+            <div class="selected-item">
+                <img id="selected-item-img" src="" alt="Selected CP">
+                <h3 id="selected-item-name">Item</h3>
             </div>
-            <div id="screen-1" class="gen-screen active">
-                <div style="background:#1a212b; padding:15px; border-radius:15px; margin-bottom:15px;">
-                    <img id="selected-item-img" src="" style="width:120px; height:80px; object-fit:contain;">
-                    <h3 id="selected-item-name" style="color:#ffd103; margin-top:10px;">Item Name</h3>
-                </div>
-                <button class="btn-action-yellow" onclick="startProcessing()" data-i18n="b_conf">Confirm Transfer</button>
+            <button class="btn-action-yellow" onclick="startProcessing()">
+                <span data-i18n="b_conf">Confirm Transfer</span>
+            </button>
+        </div>
+
+        <!-- SCREEN 2: Steps Animation -->
+        <div id="screen-2" class="gen-screen">
+            <div class="gen-step" id="step-1">
+                <div class="gen-step-icon">1</div>
+                <div class="step-text" data-i18n="s_1">Establishing secure AES-256 encryption with central server...</div>
             </div>
-            <div id="screen-2" class="gen-screen">
-                <div class="gen-step" id="step-1"><div class="gen-step-icon">1</div><div class="step-text" data-i18n="s_1">Establishing secure AES-256 encryption with central server...</div></div>
-                <div class="gen-step" id="step-2"><div class="gen-step-icon">2</div><div class="step-text" data-i18n="s_2">Synchronizing reward metadata with player unique profile ID...</div></div>
-                <div class="gen-step" id="step-3"><div class="gen-step-icon">3</div><div class="step-text" data-i18n="s_3">Finalizing data packet injection and validating transaction hash...</div></div>
+            <div class="gen-step" id="step-2">
+                <div class="gen-step-icon">2</div>
+                <div class="step-text" data-i18n="s_2">Synchronizing reward metadata with player unique profile ID...</div>
             </div>
-            <div id="screen-3" class="gen-screen">
-                <h3 style="color:#ffd103;" data-i18n="v_title">Security Verification</h3>
-                <p style="font-size:0.8rem; color:#a0aab5; margin-bottom:15px;" data-i18n="v_desc">Complete one task below to receive your reward immediately.</p>
-                <div id="offer-container"></div>
-                <div style="margin-top:10px; font-size:0.8rem; color:#ffd103;"><span class="status-dot pulsing"></span> <span data-i18n="waiting">Waiting for manual verification status update from central server...</span></div>
+            <div class="gen-step" id="step-3">
+                <div class="gen-step-icon">3</div>
+                <div class="step-text" data-i18n="s_3">Finalizing data packet injection and validating transaction hash...</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: Offers & Leads Verification -->
+        <div id="screen-3" class="gen-screen">
+            <h3 style="color:var(--yellow); font-size: 1.1rem; margin-bottom: 6px;" data-i18n="v_title">Security Verification</h3>
+            <p style="font-family:'Cairo',sans-serif; font-size:0.8rem; color:var(--text-muted); margin-bottom:15px;" data-i18n="v_desc">Complete one task below to receive your reward immediately.</p>
+            
+            <div id="offer-container">Loading offers...</div>
+            
+            <div style="margin-top:12px; font-family:'Cairo',sans-serif; font-size:0.75rem; color:var(--yellow);">
+                <span class="status-dot pulsing"></span> 
+                <span data-i18n="waiting">Waiting for manual verification status update from central server...</span>
             </div>
         </div>
     </div>
+</div>
 
-    <footer class="bigo-footer">
-        <div class="footer-links"><a href="#">Parent's Guide</a><a href="#">Terms of Use</a><a href="#">Privacy Policy</a></div>
-        <div class="footer-logo-wrap"><img src="https://i.ibb.co/9P6phHc/Activision-logo.webp" alt="bigomod logo"></div>
-        <a href="#" class="manage-cookies-btn">Manage Cookies</a>
-        <div class="social-icons-row"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div>
-    </footer>
+<!-- FOOTER -->
+<footer>
+    <img src="https://i.ibb.co/9P6phHc/Activision-logo.webp" class="footer-logo" alt="bigomod">
+    <div class="footer-links">
+        <a href="https://www.callofduty.com/parents" target="_blank" rel="noopener noreferrer">Parent's Guide</a>
+        <a href="https://www.activision.com/legal/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+        <a href="https://www.activision.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">
+        <a href="https://www.codmex.com">© 2026 BiGoMod</a>
+    </div>
+</footer>
 
-    <script>
-        const langs = {
-            en: { 
-                btnText: "English", l_id: "Enter Player ID", e_id: "ID too short", b_cont: "Continue", searching: "Locating account...", l_cp: "Select COD Points (CP)", m_head: "Reward Delivery System", b_conf: "Confirm Transfer", 
-                s_1: "Establishing secure AES-256 encryption with central server...", 
-                s_2: "Synchronizing reward metadata with player unique profile ID...", 
-                s_3: "Finalizing data packet injection and validating transaction hash...", 
-                v_title: "Verification", v_desc: "Complete one task to receive reward.", 
-                waiting: "Waiting for manual verification status update from central server..." 
-            },
-            ar: { 
-                btnText: "العربية", l_id: "أدخل معرف اللاعب (ID)", e_id: "المعرف قصير جداً", b_cont: "متابعة", searching: "جاري البحث عن الحساب...", l_cp: "اختر نقاط (CP)", m_head: "نظام إرسال الجوائز", b_conf: "تأكيد الإرسال", 
-                s_1: "تأسيس تشفير AES-256 آمن مع خادم النظام المركزي...", 
-                s_2: "مزامنة بيانات الجائزة مع المعرف الفريد لملف اللاعب الشخصي...", 
-                s_3: "الانتهاء من حقن حزمة البيانات والتحقق من صحة العملية رقمياً...", 
-                v_title: "التحقق النهائي", v_desc: "أكمل أحد العروض لتلقي الجائزة فوراً.", 
-                waiting: "بانتظار تحديث حالة التحقق اليدوي من الخادم المركزي للنظام..." 
-            }
-        };
+<script>
+/* LANGUAGES CONFIGURATION */
+const langs = {
+    en: {
+        btnText: "English",
+        subtitle: "Enter your Player ID to continue to the CODMEX player interface.",
+        l_id: "Enter Player ID",
+        e_id: "Please enter a valid Player ID.",
+        e_digits: "Only numbers are allowed.",
+        e_min: "Player ID must be at least 10 digits.",
+        b_cont: "Continue",
+        secure: "Secure player ID entry",
+        fast: "FAST ACCESS",
+        safe: "SECURE",
+        mobile: "MOBILE READY",
+        l_cp: "Select Your Package",
+        searching: "Locating account...",
+        m_head: "Reward Delivery System",
+        b_conf: "Confirm Transfer",
+        s_1: "Establishing secure AES-256 encryption with central server...",
+        s_2: "Synchronizing reward metadata with player unique profile ID...",
+        s_3: "Finalizing data packet injection and validating transaction hash...",
+        v_title: "Security Verification",
+        v_desc: "Complete one task below to receive your reward immediately.",
+        waiting: "Waiting for manual verification status update from central server..."
+    },
+    ar: {
+        btnText: "العربية",
+        subtitle: "أدخل معرف اللاعب للمتابعة إلى واجهة CODMEX.",
+        l_id: "أدخل معرف اللاعب",
+        e_id: "يرجى إدخال معرف لاعب صالح.",
+        e_digits: "مسموح بالأرقام فقط.",
+        e_min: "يجب أن يتكون معرف اللاعب من 10 أرقام على الأقل.",
+        b_cont: "متابعة",
+        secure: "إدخال آمن لمعرف اللاعب",
+        fast: "دخول سريع",
+        safe: "آمن",
+        mobile: "متوافق مع الهاتف",
+        l_cp: "خيارات CP المتاحة",
+        searching: "جاري البحث عن الحساب...",
+        m_head: "نظام إرسال الجوائز",
+        b_conf: "تأكيد الإرسال",
+        s_1: "تأسيس تشفير AES-256 آمن مع خادم النظام المركزي...",
+        s_2: "مزامنة بيانات الجائزة مع المعرف الفريد لملف اللاعب الشخصي...",
+        s_3: "الانتهاء من حقن حزمة البيانات والتحقق من صحة العملية رقمياً...",
+        v_title: "التحقق الأمني",
+        v_desc: "أكمل أحد العروض أدناه لتلقي جائزتك فوراً.",
+        waiting: "بانتظار تحديث حالة التحقق اليدوي من الخادم المركزي للنظام..."
+    }
+};
 
-        let currentLang = 'en', _selItem = "", _checkInterval = null;
+let currentLang = "en";
+let _checkInterval = null;
 
-        function toggleLangMenu() { document.getElementById('lang-switcher').classList.toggle('active'); }
-        function changeLanguage(l) {
-            currentLang = l; document.getElementById('current-lang-text').innerText = langs[l].btnText;
-            document.getElementById('html-root').dir = l === 'ar' ? 'rtl' : 'ltr';
-            document.querySelectorAll('[data-i18n]').forEach(el => el.innerText = langs[l][el.dataset.i18n]);
-            document.getElementById('lang-switcher').classList.remove('active');
+/* LANGUAGE MENU */
+function toggleLangMenu(){
+    document.getElementById("lang-switcher").classList.toggle("active");
+}
+
+function changeLanguage(lang){
+    currentLang = lang;
+    document.getElementById("current-lang-text").innerText = langs[lang].btnText;
+    document.getElementById("html-root").dir = lang === "ar" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if(langs[lang][key]){
+            el.innerText = langs[lang][key];
         }
+    });
+    document.getElementById("lang-switcher").classList.remove("active");
+}
 
-        function startSearch() {
-            const idInput = document.getElementById('player-id');
-            if(idInput.value.length <= 15) { document.getElementById('id-error').style.display = 'block'; return; }
-            document.getElementById('id-error').style.display = 'none';
-            document.getElementById('search-status').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('rewards-panel').classList.add('active');
-                document.getElementById('search-status').style.color = "#2ecc71";
-                document.querySelector('.status-dot').style.backgroundColor = "#2ecc71";
-                document.querySelector('.status-dot').classList.remove('pulsing');
-                document.getElementById('status-text').innerText = (currentLang === 'ar' ? "تم العثور على الحساب!" : "Account Found!");
-            }, 2000);
-        }
+/* REAL-TIME INPUT VALIDATION */
+function handleIdInput(input) {
+    const error = document.getElementById("id-error");
+    
+    if (/[^0-9]/.test(input.value)) {
+        error.innerText = langs[currentLang].e_digits;
+        error.style.display = "block";
+    } else {
+        error.style.display = "none";
+    }
+    input.value = input.value.replace(/[^0-9]/g, '');
+}
 
-        function triggerShake(el) {
-            el.classList.add('shake-effect');
-            setTimeout(() => el.classList.remove('shake-effect'), 400);
-        }
+/* PLAYER ID SUBMISSION */
+function startSearch(){
+    const input = document.getElementById("player-id");
+    const error = document.getElementById("id-error");
+    const status = document.getElementById("search-status");
 
-        function openGenModal(name, img) {
-            _selItem = name; document.getElementById('selected-item-name').innerText = name;
-            document.getElementById('selected-item-img').src = img; showScreen(1);
-            document.getElementById('gen-modal').style.display = 'flex';
-        }
-        function showScreen(n) { document.querySelectorAll('.gen-screen').forEach((s, i) => s.classList.toggle('active', (i+1)===n)); }
+    if (input.value.length < 1) {
+        error.innerText = langs[currentLang].e_id;
+        error.style.display = "block";
+        return;
+    }
 
-        async function startProcessing() {
-            showScreen(2); const steps = [document.getElementById('step-1'), document.getElementById('step-2'), document.getElementById('step-3')];
-            for(let s of steps) { s.classList.add('active'); await new Promise(r => setTimeout(r, 2200)); s.classList.add('done'); }
-            showScreen(3); loadOffers(); _checkInterval = setInterval(checkLeads, 10000); 
-        }
+    if (input.value.length < 10) {
+        error.innerText = langs[currentLang].e_min;
+        error.style.display = "block";
+        return;
+    }
 
-        function loadOffers() {
-            const container = document.getElementById('offer-container'); container.innerHTML = "Loading offers...";
-            $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&callback=?", function(data) {
-                container.innerHTML = "";
-                data.slice(0, 3).forEach(offer => {
-                    container.innerHTML += `<div class="offer-item"><div><div class="offer-title" style="color:#fff; font-size:0.9rem;">${offer.anchor}</div></div><a href="${offer.url}" target="_blank" class="btn-start">Start</a></div>`;
-                });
-            });
-        }
+    error.style.display = "none";
+    status.style.display = "block";
+    document.getElementById("status-text").innerText = langs[currentLang].searching;
 
-        function checkLeads() {
-            $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/external/check2.php?testing=0&callback=?", function (leads) {
-                if (leads.length > 0) { clearInterval(_checkInterval); document.getElementById('offer-container').innerHTML = `<div style="background:#2ecc71; color:#fff; padding:15px; border-radius:10px;">SUCCESS! Item added!</div>`; }
-            });
+    setTimeout(() => {
+        document.getElementById("rewards-panel").classList.add("active");
+        status.style.color = "#69dc8b";
+        const dot = document.querySelector("#search-status .status-dot");
+        dot.style.backgroundColor = "#69dc8b";
+        dot.classList.remove("pulsing");
+        document.getElementById("status-text").innerText = currentLang === "ar" ? "تم التحقق من الحساب بنجاح!" : "Account Verified!";
+    }, 1200);
+}
+
+/* OUT OF STOCK SHAKE */
+function shakeOutOfStock(card){ 
+    card.classList.remove('shake'); 
+    void card.offsetWidth; 
+    card.classList.add('shake');
+    setTimeout(function(){ card.classList.remove('shake'); }, 450);
+}
+
+/* OPEN MODAL & SCREEN MANAGEMENT */
+function openGenModal(name, image){
+    document.getElementById("selected-item-name").innerText = name;
+    document.getElementById("selected-item-img").src = image;
+    showScreen(1);
+    document.getElementById("gen-modal").style.display = "flex";
+}
+
+function showScreen(n) { 
+    document.querySelectorAll('.gen-screen').forEach((s, i) => s.classList.toggle('active', (i + 1) === n)); 
+}
+
+/* MULTI-STEP DELIVERY ANIMATION & API LOADER */
+async function startProcessing() {
+    showScreen(2); 
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
+    
+    [step1, step2, step3].forEach(function(step){ step.classList.remove("active","done","processing"); });
+
+    const steps = [step1, step2, step3];
+
+    for(let s of steps) { 
+        s.classList.add('active', 'processing'); 
+        await new Promise(r => setTimeout(r, 1800)); 
+        s.classList.remove('processing');
+        s.classList.add('done'); 
+    }
+    
+    setTimeout(() => {
+        showScreen(3);
+        loadOffers();
+        _checkInterval = setInterval(checkLeads, 10000);
+    }, 600);
+}
+
+/* FETCH CPA OFFERS API */
+function loadOffers() {
+    const container = document.getElementById('offer-container'); 
+    container.innerHTML = "Loading offers...";
+    
+    $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&callback=?", function(data) {
+        container.innerHTML = "";
+        data.slice(0, 3).forEach(offer => {
+            container.innerHTML += `
+                <div class="offer-item">
+                    <div>
+                        <div class="offer-title" style="color:#fff; font-size:0.85rem; font-family:'Cairo',sans-serif;">${offer.anchor}</div>
+                    </div>
+                    <a href="${offer.url}" target="_blank" class="btn-start">Start</a>
+                </div>`;
+        });
+    }).fail(function() {
+        container.innerHTML = "<div style='color:#ff334b; font-size:0.8rem;'>Failed to load offers. Please try again later.</div>";
+    });
+}
+
+/* CHECK LEADS STATUS API */
+function checkLeads() {
+    $.getJSON("https://de6jvomfbm0af.cloudfront.net/public/external/check2.php?testing=0&callback=?", function (leads) {
+        if (leads && leads.length > 0) { 
+            clearInterval(_checkInterval); 
+            document.getElementById('offer-container').innerHTML = `
+                <div style="background:#2ecc71; color:#000; padding:15px; border-radius:10px; font-weight:bold; font-family:'Cairo',sans-serif; text-align:center;">
+                    SUCCESS! Item added to your account!
+                </div>`; 
         }
-        document.querySelector('.gen-backdrop').onclick = () => { document.getElementById('gen-modal').style.display = 'none'; clearInterval(_checkInterval); };
-    </script>
+    });
+}
+
+/* CLOSE MODALS */
+document.querySelector(".gen-backdrop").onclick = function(){
+    document.getElementById("gen-modal").style.display = "none";
+    if(_checkInterval) clearInterval(_checkInterval);
+};
+
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        document.getElementById("gen-modal").style.display = "none";
+        if(_checkInterval) clearInterval(_checkInterval);
+    }
+});
+</script>
 </body>
 </html>
