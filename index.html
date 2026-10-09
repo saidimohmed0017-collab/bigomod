@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIGOMOD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<!-- مكتبة jQuery المطلوبة للـ API -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="icon" href="https://cdn.renderhub.com/kma/call-of-duty-mobile-logos/call-of-duty-mobile-logos-07.jpg">
+<!-- ربط ملف الـ CSS الخارجي -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- نافذة التحذير الخاصة بـ TikTok -->
+<div id="tiktok-browser-warning">
+    <div class="browser-warning-box">
+        
+        <div class="browser-mockup-container">
+            <img src="https://i.imgur.com/uuGJY7f.gif" alt="Open in Browser Guide" class="browser-mockup-img">
+        </div>
+
+        <h2 class="browser-warning-title">Open in Browser Required</h2>
+        
+        <div class="browser-warning-instructions">
+            Please click on the three dots (<strong>•••</strong>) at the top and select <strong>"Open in Browser"</strong> or copy the link and open it in Google Chrome or any browser.
+        </div>
+
+        <button onclick="copyCurrentLink()" id="copy-link-btn" class="btn-copy-custom">
+            <i class="bi bi-clipboard-check-fill"></i>
+            <span>Copy Link</span>
+        </button>
+    </div>
+</div>
+
+<div class="bg-layer"></div>
+<div class="bg-overlay"></div>
+<div class="bg-grid"></div>
+
+<header class="navbar">
+    <div class="lang-switcher-container" id="lang-switcher">
+        <div class="lang-pill" onclick="toggleLangMenu()">
+            <i class="bi bi-globe2"></i>
+            <span id="current-lang-text">English</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+
+        <div class="lang-dropdown">
+            <div onclick="changeLanguage('en')">English</div>
+            <div onclick="changeLanguage('ar')">العربية</div>
+        </div>
+    </div>
+</header>
+
+<main class="hero">
+    <div class="container">
+
+        <div class="logo-wrap">
+            <img src="https://logodix.com/logo/1050523.png" class="top-logo-img" alt="BIGOMOD">
+        </div>
+
+        <p class="hero-subtitle" data-i18n="subtitle">
+            Enter your Player ID to continue to the BIGOMOD player interface.
+        </p>
+
+        <!-- PLAYER ID CARD -->
+        <div class="card-panel">
+            <div class="input-heading">
+                <i class="bi bi-person-fill"></i>
+                <label class="section-label" data-i18n="l_id">Enter Player ID</label>
+            </div>
+
+            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." oninput="handleIdInput(this)">
+
+            <p id="id-error" style="display:none;" data-i18n="e_id">Please enter a valid Player ID.</p>
+
+            <button class="btn-action-yellow" onclick="startSearch()">
+                <span data-i18n="b_cont">Continue</span>
+                <i class="bi bi-arrow-right-short" style="font-size: 1.3rem;"></i>
+            </button>
+
+            <div class="security-note">
+                <i class="bi bi-shield-check"></i>
+                <span data-i18n="secure">Secure player ID entry</span>
+            </div>
+
+            <div id="search-status">
+                <span class="status-dot pulsing"></span>
+                <span id="status-text">Checking...</span>
+            </div>
+        </div>
+
+        <div class="feature-strip">
+            <div class="feature">
+                <i class="bi bi-lightning-charge-fill"></i>
+                <span data-i18n="fast">FAST ACCESS</span>
+            </div>
+            <div class="feature">
+                <i class="bi bi-shield-lock-fill"></i>
+                <span data-i18n="safe">SECURE</span>
+            </div>
+            <div class="feature">
+                <i class="bi bi-phone-fill"></i>
+                <span data-i18n="mobile">MOBILE READY</span>
+            </div>
+        </div>
+
+        <!-- REWARDS / CATEGORY STRIP -->
+        <div class="rewards-section" id="rewards-panel">
+            <div class="rewards-group">
+                <div class="rewards-title" data-i18n="l_cp">Select Your Package</div>
+
+                <div class="category-strip-5">
+                    <div class="cat-feature-btn active" onclick="switchCategory('cp', this)"><i class="bi bi-coin"></i><span>CP</span></div>
+                    <div class="cat-feature-btn" onclick="switchCategory('mythic', this)"><i class="bi bi-award-fill"></i><span>Mythic</span></div>
+                    <div class="cat-feature-btn" onclick="switchCategory('legendary', this)"><i class="bi bi-gem"></i><span>Legendary</span></div>
+                    <div class="cat-feature-btn" onclick="switchCategory('character', this)"><i class="bi bi-person-badge-fill"></i><span>Character</span></div>
+                    <div class="cat-feature-btn" onclick="switchCategory('other', this)"><i class="bi bi-box-seam-fill"></i><span>Other</span></div>
+                </div>
+
+                <!-- 1. CP Tab -->
+                <div id="pane-cp" class="tab-pane active" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">1,100 CP</div>
+                    </div>
+                    <div class="reward-card" onclick="openGenModal('3,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">3,400 CP</div>
+                    </div>
+                    <div class="reward-card" onclick="openGenModal('6,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">6,000 CP</div>
+                    </div>
+                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">10,000 CP</div>
+                    </div>
+                    <div class="reward-card out-of-stock" onclick="shakeOutOfStock(this)">
+                        <span class="stock-badge">Sold Out</span>
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">17,000 CP</div>
+                    </div>
+                    <div class="reward-card out-of-stock" onclick="shakeOutOfStock(this)">
+                        <span class="stock-badge">Sold Out</span>
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="CP">
+                        <div class="reward-amount">25,000 CP</div>
+                    </div>
+                </div>
+
+                <!-- 2. Mythic Tab -->
+                <div id="pane-mythic" class="tab-pane weapons-grid-3">
+                    <div class="reward-card" onclick="openGenModal('AK117 - grim ending', 'https://i.ibb.co/mrWFGQgP/Picsart-26-09-21-19-07-08-995.png')"><img src="https://i.ibb.co/mrWFGQgP/Picsart-26-09-21-19-07-08-995.png" class="reward-icon-img"><div class="reward-amount">AK117 - grim ending</div></div>
+                    <div class="reward-card" onclick="openGenModal('Grau 5.56', 'https://i.ibb.co/bjmZKgBB/20260804-151840.png')"><img src="https://i.ibb.co/bjmZKgBB/20260804-151840.png" class="reward-icon-img"><div class="reward-amount">Grau 5.56</div></div>
+                    <div class="reward-card" onclick="openGenModal('M13 Morningstar', 'https://i.ibb.co/ycqZhCxP/20260804-152158.png')"><img src="https://i.ibb.co/ycqZhCxP/20260804-152158.png" class="reward-icon-img"><div class="reward-amount">M13 Morningstar</div></div>
+                    <div class="reward-card" onclick="openGenModal('EM2 - Eclipse Phaser', 'https://i.ibb.co/chJkWN88/Picsart-26-09-15-18-47-21-355.png')"><img src="https://i.ibb.co/chJkWN88/Picsart-26-09-15-18-47-21-355.png" class="reward-icon-img"><div class="reward-amount">EM2 - Eclipse</div></div>
+                    <div class="reward-card" onclick="openGenModal('DL Q33 - Lotus Flames', 'https://i.ibb.co/DHP3Ndzs/Picsart-26-09-15-19-09-57-406.png')"><img src="https://i.ibb.co/DHP3Ndzs/Picsart-26-09-15-19-09-57-406.png" class="reward-icon-img"><div class="reward-amount">DL Q33 - Lotus</div></div>
+                    <div class="reward-card" onclick="openGenModal('FFAR 1 Bright Blade', 'https://i.ibb.co/zTQ143BF/20260829-212321.png')"><img src="https://i.ibb.co/zTQ143BF/20260829-212321.png" class="reward-icon-img"><div class="reward-amount">FFAR 1 Bright</div></div>
+                    <div class="reward-card" onclick="openGenModal('Type 19 - Celestial ink', 'https://i.ibb.co/Kc1ggLrN/Picsart-26-09-21-19-08-45-276.png')"><img src="https://i.ibb.co/Kc1ggLrN/Picsart-26-09-21-19-08-45-276.png" class="reward-icon-img"><div class="reward-amount">Type 19 - Ink</div></div>
+                    <div class="reward-card" onclick="openGenModal('Switchblade X9 - Neon Legend', 'https://i.ibb.co/zTZ52j1V/20260829-212904.png')"><img src="https://i.ibb.co/zTZ52j1V/20260829-212904.png" class="reward-icon-img"><div class="reward-amount">Switchblade X9</div></div>
+                    <div class="reward-card" onclick="openGenModal('BP50 - Ion Eruption', 'https://i.ibb.co/tPL5Ft27/20260829-212544.png')"><img src="https://i.ibb.co/tPL5Ft27/20260829-212544.png" class="reward-icon-img"><div class="reward-amount">BP50 - Eruption</div></div>
+                    <div class="reward-card" onclick="openGenModal('Type 25 - Deepstar Piercer', 'https://i.ibb.co/YBQT54BH/Picsart-26-09-05-02-29-04-306.png')"><img src="https://i.ibb.co/YBQT54BH/Picsart-26-09-05-02-29-04-306.png" class="reward-icon-img"><div class="reward-amount">Type 25 - Deepstar</div></div>
+                    <div class="reward-card" onclick="openGenModal('Oden - Divine Smite', 'https://i.ibb.co/7dzVNjcj/Picsart-26-09-05-01-08-05-478.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/7dzVNjcj/Picsart-26-09-05-01-08-05-478.png" class="reward-icon-img"><div class="reward-amount">Oden - Divine</div></div>
+                    <div class="reward-card" onclick="openGenModal('QQ9 - Dual Kinetics', 'https://i.ibb.co/0Vqj6pPt/Picsart-26-09-16-14-28-30-527.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/0Vqj6pPt/Picsart-26-09-16-14-28-30-527.png" class="reward-icon-img"><div class="reward-amount">QQ9 - Kinetics</div></div>
+                    <div class="reward-card" onclick="openGenModal('Krig 6 - Ice Drake', 'https://i.ibb.co/nND2NKcM/Picsart-26-09-18-16-15-18-655.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/nND2NKcM/Picsart-26-09-18-16-15-18-655.png" class="reward-icon-img"><div class="reward-amount">Krig 6 - Drake</div></div>
+                    <div class="reward-card" onclick="openGenModal('CX-9 - Lethal Hollow', 'https://i.ibb.co/pBDvKCML/Picsart-26-09-18-15-56-28-487.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/pBDvKCML/Picsart-26-09-18-15-56-28-487.png" class="reward-icon-img"><div class="reward-amount">CX-9 - Hollow</div></div>
+                    <div class="reward-card" onclick="openGenModal('XM4 - Luminescent Jade', 'https://i.ibb.co/dhXYmLz/Picsart-26-09-22-19-45-43-296.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/dhXYmLz/Picsart-26-09-22-19-45-43-296.png" class="reward-icon-img"><div class="reward-amount">XM4 - Jade</div></div>
+                    <div class="reward-card" onclick="openGenModal('ak-74 - radiance', 'https://i.ibb.co/bjrQLRfv/Picsart-26-09-23-13-41-21-094.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/bjrQLRfv/Picsart-26-09-23-13-41-21-094.png" class="reward-icon-img"><div class="reward-amount">ak-74 - radiance</div></div>
+                    <div class="reward-card" onclick="openGenModal('MG42 - The Campaign', 'https://i.ibb.co/tTVP9rxC/Picsart-26-09-23-13-46-49-506.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/tTVP9rxC/Picsart-26-09-23-13-46-49-506.png" class="reward-icon-img"><div class="reward-amount">MG42 - Campaign</div></div>
+                    <div class="reward-card" onclick="openGenModal('AK117 - Lava Remix', 'https://i.ibb.co/ynTgWPTY/Picsart-26-09-24-18-54-49-835.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/ynTgWPTY/Picsart-26-09-24-18-54-49-835.png" class="reward-icon-img"><div class="reward-amount">AK117 - Remix</div></div>
+                    <div class="reward-card" onclick="openGenModal('ISO Hemlock - Core of thunder', 'https://i.ibb.co/hJQCGnYG/Picsart-26-09-27-16-12-45-392.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/hJQCGnYG/Picsart-26-09-27-16-12-45-392.png" class="reward-icon-img"><div class="reward-amount">ISO - Thunder</div></div>
+                    <div class="reward-card" onclick="openGenModal('BAL-27 - Core of reason', 'https://i.ibb.co/KxqScbdh/Picsart-26-09-25-21-15-26-122.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/KxqScbdh/Picsart-26-09-25-21-15-26-122.png" class="reward-icon-img"><div class="reward-amount">BAL-27 - Reason</div></div>
+                    <div class="reward-card" onclick="openGenModal('Static-HV - Core of fire', 'https://i.ibb.co/wZP5fHJ1/Picsart-26-09-25-21-16-27-872.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/wZP5fHJ1/Picsart-26-09-25-21-16-27-872.png" class="reward-icon-img"><div class="reward-amount">Static-HV - Fire</div></div>
+                    <div class="reward-card" onclick="openGenModal('LW3 - Tundra - Pulsar Chamber', 'https://i.ibb.co/zWZ7rwsJ/Picsart-26-09-24-18-53-35-329.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/zWZ7rwsJ/Picsart-26-09-24-18-53-35-329.png" class="reward-icon-img"><div class="reward-amount">LW3 Tundra</div></div>
+                    <div class="reward-card" onclick="openGenModal('USS-9 Fusion', 'https://i.ibb.co/zWRJGxMG/Picsart-26-09-30-01-14-45-787.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/zWRJGxMG/Picsart-26-09-30-01-14-45-787.png" class="reward-icon-img"><div class="reward-amount">USS-9 Fusion</div></div>
+                </div>
+
+                <!-- 3. Legendary Tab -->
+                <div id="pane-legendary" class="tab-pane weapons-grid-3">
+                    <div class="reward-card" onclick="openGenModal('AK117 Molting Mauler', 'https://i.ibb.co/7mg7d8c/20260829-212514.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/7mg7d8c/20260829-212514.png" class="reward-icon-img"><div class="reward-amount">AK117 Mauler</div></div>
+                    <div class="reward-card" onclick="openGenModal('Cronen Squall - Widows Bite', 'https://i.ibb.co/hF6mHDrz/20260903-204753.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/hF6mHDrz/20260903-204753.png" class="reward-icon-img"><div class="reward-amount">Cronen - Bite</div></div>
+                    <div class="reward-card" onclick="openGenModal('CBR4 - Faithful Dawn', 'https://i.ibb.co/99FtYJ3x/20260903-205642.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/99FtYJ3x/20260903-205642.png" class="reward-icon-img"><div class="reward-amount">CBR4 - Dawn</div></div>
+                    <div class="reward-card" onclick="openGenModal('Chikom - Density Infinite', 'https://i.ibb.co/Rp2pspBw/Picsart-26-09-09-13-46-12-824.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/Rp2pspBw/Picsart-26-09-09-13-46-12-824.png" class="reward-icon-img"><div class="reward-amount">Chikom - Density</div></div>
+                    <div class="reward-card" onclick="openGenModal('DL Q33 - Bass Booster', 'https://i.ibb.co/sxYCpwV/Picsart-26-09-22-19-36-23-975.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/sxYCpwV/Picsart-26-09-22-19-36-23-975.png" class="reward-icon-img"><div class="reward-amount">DL Q33 - Bass</div></div>
+                    <div class="reward-card" onclick="openGenModal('Nail Gun - Domain of Incandescence', 'https://i.ibb.co/chP0rdjx/Picsart-26-09-19-18-00-47-297.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/chP0rdjx/Picsart-26-09-19-18-00-47-297.png" class="reward-icon-img"><div class="reward-amount">Nail Gun</div></div>
+                    <div class="reward-card" onclick="openGenModal('FHJ - Domain of Revelation', 'https://i.ibb.co/4nffkxNM/Picsart-26-09-19-17-50-29-409.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/4nffkxNM/Picsart-26-09-19-17-50-29-409.png" class="reward-icon-img"><div class="reward-amount">FHJ - Revelation</div></div>
+                    <div class="reward-card" onclick="openGenModal('R9-0 - Howl Cannon', 'https://i.ibb.co/yFbjRRy1/Picsart-26-09-30-01-09-08-640.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/yFbjRRy1/Picsart-26-09-30-01-09-08-640.png" class="reward-icon-img"><div class="reward-amount">R9-0 - Howl</div></div>
+                </div>
+
+                <!-- 4. Character Tab -->
+                <div id="pane-character" class="tab-pane weapons-grid-3">
+                    <div class="reward-card" onclick="openGenModal('Lazarus - Cosmic Wrath', 'https://i.ibb.co/V0rGSWk4/Picsart-26-09-26-07-37-56-759.png')"><img src="https://i.ibb.co/V0rGSWk4/Picsart-26-09-26-07-37-56-759.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Lazarus</div></div>
+                    <div class="reward-card" onclick="openGenModal('Ghost - Eternal Siege', 'https://i.ibb.co/cKtcfvcm/Picsart-26-09-26-07-40-19-777.png')"><img src="https://i.ibb.co/cKtcfvcm/Picsart-26-09-26-07-40-19-777.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Ghost - Siege</div></div>
+                    <div class="reward-card" onclick="openGenModal('Dark Shepherd - Phantom', 'https://i.ibb.co/23q9DxRd/Picsart-26-09-26-07-41-10-069.png')"><img src="https://i.ibb.co/23q9DxRd/Picsart-26-09-26-07-41-10-069.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Dark Shepherd</div></div>
+                    <div class="reward-card" onclick="openGenModal('Templar - Couteaus Oath', 'https://i.ibb.co/CKV3xHdx/Picsart-26-09-26-07-42-12-158.png')"><img src="https://i.ibb.co/CKV3xHdx/Picsart-26-09-26-07-42-12-158.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Templar</div></div>
+                    <div class="reward-card" onclick="openGenModal('Spectre - T-3', 'https://i.ibb.co/21jqXb3S/Picsart-26-09-26-07-43-42-662.png')"><img src="https://i.ibb.co/21jqXb3S/Picsart-26-09-26-07-43-42-662.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Spectre - T-3</div></div>
+                    <div class="reward-card" onclick="openGenModal('Sophia', 'https://i.ibb.co/93VFsqZ2/Picsart-26-09-26-07-45-15-185.png')"><img src="https://i.ibb.co/93VFsqZ2/Picsart-26-09-26-07-45-15-185.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Sophia</div></div>
+                    <div class="reward-card" onclick="openGenModal('Siren - Siren Song', 'https://i.ibb.co/5h4jxKSj/Picsart-26-09-26-07-47-58-278.png')"><img src="https://i.ibb.co/5h4jxKSj/Picsart-26-09-26-07-47-58-278.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Siren - Song</div></div>
+                    <div class="reward-card" onclick="openGenModal('Sophia - Dawns Renewal', 'https://i.ibb.co/cXvzGhkb/Picsart-26-09-27-16-20-12-148.png')"><img src="https://i.ibb.co/cXvzGhkb/Picsart-26-09-27-16-20-12-148.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Sophia - Dawn</div></div>
+                </div>
+
+                <!-- 5. Other Tab -->
+                <div id="pane-other" class="tab-pane weapons-grid-3">
+                    <div class="reward-card" onclick="openGenModal('Wingsuit - Air Drifter', 'https://i.ibb.co/603PRC2V/Picsart-26-09-19-17-51-14-149.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/603PRC2V/Picsart-26-09-19-17-51-14-149.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Wingsuit</div></div>
+                    <div class="reward-card" onclick="openGenModal('Snowboard - Horizon', 'https://i.ibb.co/cXyWjFFM/Picsart-26-09-19-17-48-42-944.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/cXyWjFFM/Picsart-26-09-19-17-48-42-944.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Snowboard</div></div>
+                    <div class="reward-card" onclick="openGenModal('Domain of sanction', 'https://i.ibb.co/3mBgFNBG/Picsart-26-09-19-18-07-23-999.png')"><span class="stock-badge">NEW</span><img src="https://i.ibb.co/3mBgFNBG/Picsart-26-09-19-18-07-23-999.png" class="reward-icon-img"><div class="reward-amount" style="font-size:0.6rem;">Sanction</div></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- SELECTION MODAL -->
+<div id="gen-modal" class="gen-modal">
+    <div class="gen-backdrop"></div>
+    <div class="gen-box">
+        <div class="gen-header">
+            <div class="gen-header-title" data-i18n="m_head">Selection Preview</div>
+        </div>
+        <div class="gen-screen">
+            <div class="selected-item">
+                <img id="selected-item-img" src="" alt="Selected Item">
+                <h3 id="selected-item-name">Item</h3>
+            </div>
+            <button class="btn-action-yellow" onclick="startRewardDelivery()">
+                <span data-i18n="b_close">Continue</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- DELIVERY SYSTEM MODAL -->
+<div id="delivery-modal" class="delivery-modal">
+    <div class="delivery-backdrop"></div>
+    <div class="delivery-box">
+        <div class="delivery-header">
+            <div class="delivery-title">Reward Delivery System</div>
+        </div>
+        
+        <!-- الخطوات الثلاث -->
+        <div id="delivery-steps-container" class="delivery-steps">
+            <div id="delivery-step-1" class="delivery-step">
+                <div class="delivery-number">1</div>
+                <div class="delivery-text" data-i18n="st_1">Connecting securely to central server via AES-256...</div>
+            </div>
+            <div id="delivery-step-2" class="delivery-step">
+                <div class="delivery-number">2</div>
+                <div class="delivery-text" data-i18n="st_2">Matching item details with user account ID...</div>
+            </div>
+            <div id="delivery-step-3" class="delivery-step">
+                <div class="delivery-number">3</div>
+                <div class="delivery-text" data-i18n="st_3">Finalizing data transmission and authenticating transaction key...</div>
+            </div>
+        </div>
+
+        <!-- العروض الثلاثة -->
+        <div id="offers-wrapper" class="offers-container" style="display: none;">
+            <div class="offers-header-text">Security Verification</div>
+            <div class="offers-sub-text">Complete one task below to receive your reward immediately.</div>
+            
+            <div id="offerContainer"></div>
+
+            <div class="offers-footer-status">
+                <span class="status-dot pulsing"></span>
+                <span>Waiting for manual verification status update from central server...</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <img src="https://i.ibb.co/9P6phHc/Activision-logo.webp" class="footer-logo" alt="BIGOMOD">
+    <div class="footer-links">
+        <a href="https://www.callofduty.com/parents" target="_blank">Parent's Guide</a>
+        <a href="https://www.activision.com/legal/terms-of-use" target="_blank">Terms of Use</a>
+        <a href="https://www.activision.com/legal/privacy-policy" target="_blank">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">
+        <a href="https://www.bigomod.com">© 2026 BIGOMOD</a>
+    </div>
+</footer>
+
+<!-- ربط ملف الـ JS الخارجي -->
+<script src="script.js"></script>
+</body>
+</html>
