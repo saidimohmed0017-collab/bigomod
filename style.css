@@ -786,13 +786,15 @@ body {
     height: 7px;
 }
 
-/* TikTok Browser Warning Modal Style */
+/* ========================================================
+   نافذة التحذير الخاصة بـ TikTok (بخلفية شفافة وتظهر الصفحة وراءها)
+   ======================================================== */
 #tiktok-browser-warning {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(3, 6, 10, 0.96);
-    backdrop-filter: blur(16px);
+    background: rgba(3, 6, 10, 0.55); /* خلفية داكنة خفيفة تترك الصفحة الأساسية واضحة من ورائها */
+    backdrop-filter: blur(4px);      /* بلور خفيف جداً */
     z-index: 99999;
     align-items: center;
     justify-content: center;
