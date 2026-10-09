@@ -1,10 +1,11 @@
 // =========================================================================
-// 💡 روابط الـ GIF الثلاثة للمنصات:
+// 💡 روابط الـ GIF الخاصة بكل منصة:
 // =========================================================================
 var gifTikTok = "https://i.imgur.com/uuGJY7f.gif";
 var gifInstagram = "https://i.ibb.co/fYhVG3tQ/ezgif-16baba29ec0963.webp";
 var gifFacebook = "https://i.ibb.co/XrJH2zv9/lv-0-20261005235056.gif";
 
+// كشف المتصفحات وإظهار النافذة مع الـ GIF الخاص بكل منصة
 (function() {
     var ua = navigator.userAgent || navigator.vendor || window.opera;
     var gifElement = document.getElementById('browser-gif-element');
@@ -21,8 +22,15 @@ var gifFacebook = "https://i.ibb.co/XrJH2zv9/lv-0-20261005235056.gif";
         if(gifElement) gifElement.src = gifFacebook;
         document.getElementById('tiktok-browser-warning').style.display = 'flex';
     }
+    
+    /* 
+      ⚠️ لمعاينة النافذة في متصفحك العادي (كروم) للتأكد، 
+      قم بإزالة العلامتين // من السطر الموالي:
+      // document.getElementById('tiktok-browser-warning').style.display = 'flex';
+    */
 })();
 
+// وظيفة نسخ الرابط
 function copyCurrentLink() {
     navigator.clipboard.writeText(window.location.href).then(function() {
         let btn = document.getElementById('copy-link-btn');
@@ -138,21 +146,14 @@ function startSearch(){
         dot.style.backgroundColor = "#69dc8b";
         dot.classList.remove("pulsing");
         document.getElementById("status-text").innerText = currentLang === "ar" ? "تم التحقق من الإدخال." : "Input verified.";
-    }, 400);
+    }, 800);
 }
 
-// تحسين سرعة الاستجابة عند الانتقال بين الأقسام
 function switchCategory(categoryName, btnElement){
-    requestAnimationFrame(() => {
-        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-        document.querySelectorAll('.cat-feature-btn').forEach(btn => btn.classList.remove('active'));
-        
-        let targetPane = document.getElementById('pane-' + categoryName);
-        if(targetPane) {
-            targetPane.classList.add('active');
-        }
-        btnElement.classList.add('active');
-    });
+    document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+    document.querySelectorAll('.cat-feature-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('pane-' + categoryName).classList.add('active');
+    btnElement.classList.add('active');
 }
 
 function shakeOutOfStock(card){ 
@@ -187,13 +188,13 @@ function startRewardDelivery(){
         step1.classList.remove("active","processing"); 
         step1.classList.add("done"); 
         step2.classList.add("active","processing"); 
-    }, 1200);
+    }, 1500);
     
     setTimeout(function(){ 
         step2.classList.remove("active","processing"); 
         step2.classList.add("done"); 
         step3.classList.add("active","processing"); 
-    }, 2400);
+    }, 3000);
 
     setTimeout(function(){ 
         step3.classList.remove("active","processing"); 
@@ -203,7 +204,7 @@ function startRewardDelivery(){
         document.getElementById("offers-wrapper").style.display = "block";
 
         loadOffersFromAPI();
-    }, 3600);
+    }, 4500);
 }
 
 function loadOffersFromAPI() {
