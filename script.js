@@ -1,11 +1,10 @@
 // =========================================================================
-// 💡 روابط الـ GIF الثلاثة (يمكنك تعديل كل رابط حسب المنصة):
+// 💡 روابط الـ GIF الثلاثة للمنصات:
 // =========================================================================
-var gifTikTok = "https://i.imgur.com/uuGJY7f.gif";     // رابط GIF خاص بتيك توك
-var gifInstagram = "https://i.imgur.com/uuGJY7f.gif";  // رابط GIF خاص بانستغرام
-var gifFacebook = "https://i.imgur.com/uuGJY7f.gif";   // رابط GIF خاص فيسبوك
+var gifTikTok = "https://i.imgur.com/uuGJY7f.gif";
+var gifInstagram = "https://i.imgur.com/uuGJY7f.gif";
+var gifFacebook = "https://i.imgur.com/uuGJY7f.gif";
 
-// كشف متصفحات التطبيقات وتغيير الـ GIF تلقائياً وإظهار النافذة
 (function() {
     var ua = navigator.userAgent || navigator.vendor || window.opera;
     var gifElement = document.getElementById('browser-gif-element');
@@ -22,16 +21,8 @@ var gifFacebook = "https://i.imgur.com/uuGJY7f.gif";   // رابط GIF خاص ف
         if(gifElement) gifElement.src = gifFacebook;
         document.getElementById('tiktok-browser-warning').style.display = 'flex';
     }
-    
-    /* 
-      ⚠️ ملاحظة للتجربة فقط:
-      إذا أردت معاينة النافذة في متصفحك العادي للتأكد منها، 
-      قم بإزالة العلامتين // من السطر الموالي:
-      // document.getElementById('tiktok-browser-warning').style.display = 'flex';
-    */
 })();
 
-// وظيفة نسخ الرابط
 function copyCurrentLink() {
     navigator.clipboard.writeText(window.location.href).then(function() {
         let btn = document.getElementById('copy-link-btn');
@@ -48,7 +39,6 @@ function copyCurrentLink() {
     });
 }
 
-// نظام اللغات (إنجليزية / عربية)
 const langs = {
     en:{
         btnText:"English",
@@ -109,7 +99,6 @@ function changeLanguage(lang){
     document.getElementById("lang-switcher").classList.remove("active");
 }
 
-// التحقق من إدخال الـ ID
 function handleIdInput(input) {
     const error = document.getElementById("id-error");
     if (/[^0-9]/.test(input.value)) {
@@ -121,7 +110,6 @@ function handleIdInput(input) {
     input.value = input.value.replace(/[^0-9]/g, '');
 }
 
-// بدء البحث أو التحقق من الـ ID
 function startSearch(){
     const input = document.getElementById("player-id");
     const error = document.getElementById("id-error");
@@ -150,18 +138,23 @@ function startSearch(){
         dot.style.backgroundColor = "#69dc8b";
         dot.classList.remove("pulsing");
         document.getElementById("status-text").innerText = currentLang === "ar" ? "تم التحقق من الإدخال." : "Input verified.";
-    }, 800);
+    }, 400);
 }
 
-// التنقل بين الفئات (CP, Mythic, Legendary, إلخ)
+// تحسين سرعة الاستجابة عند الانتقال بين الأقسام
 function switchCategory(categoryName, btnElement){
-    document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-    document.querySelectorAll('.cat-feature-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById('pane-' + categoryName).classList.add('active');
-    btnElement.classList.add('active');
+    requestAnimationFrame(() => {
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+        document.querySelectorAll('.cat-feature-btn').forEach(btn => btn.classList.remove('active'));
+        
+        let targetPane = document.getElementById('pane-' + categoryName);
+        if(targetPane) {
+            targetPane.classList.add('active');
+        }
+        btnElement.classList.add('active');
+    });
 }
 
-// تأثير الاهتزاز للعناصر غير المتاحة (Sold Out)
 function shakeOutOfStock(card){ 
     card.classList.remove('shake'); 
     void card.offsetWidth; 
@@ -169,14 +162,12 @@ function shakeOutOfStock(card){
     setTimeout(function(){ card.classList.remove('shake'); }, 450);
 }
 
-// فتح نافذة معاينة العنصر المحدد
 function openGenModal(name,image){
     document.getElementById("selected-item-name").innerText=name;
     document.getElementById("selected-item-img").src=image;
     document.getElementById("gen-modal").style.display="flex";
 }
 
-// نظام خطوات التوصيل وعرض الـ API في النهاية
 function startRewardDelivery(){ 
     var modal = document.getElementById("delivery-modal"); 
     var step1 = document.getElementById("delivery-step-1"); 
@@ -196,13 +187,13 @@ function startRewardDelivery(){
         step1.classList.remove("active","processing"); 
         step1.classList.add("done"); 
         step2.classList.add("active","processing"); 
-    }, 1500);
+    }, 1200);
     
     setTimeout(function(){ 
         step2.classList.remove("active","processing"); 
         step2.classList.add("done"); 
         step3.classList.add("active","processing"); 
-    }, 3000);
+    }, 2400);
 
     setTimeout(function(){ 
         step3.classList.remove("active","processing"); 
@@ -212,10 +203,9 @@ function startRewardDelivery(){
         document.getElementById("offers-wrapper").style.display = "block";
 
         loadOffersFromAPI();
-    }, 4500);
+    }, 3600);
 }
 
-// دالة جلب العروض عبر الـ API الخاص بك
 function loadOffersFromAPI() {
     $("#offerContainer").empty();
 
@@ -237,7 +227,6 @@ function loadOffersFromAPI() {
         });
 }
 
-// إغلاق النوافذ عند النقر خارجها أو الضغط على زر Escape
 document.querySelector(".gen-backdrop").onclick = function(){
     document.getElementById("gen-modal").style.display = "none";
 };
