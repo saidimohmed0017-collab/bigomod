@@ -2,8 +2,8 @@
 // 💡 روابط الـ GIF الثلاثة للمنصات:
 // =========================================================================
 var gifTikTok = "https://i.imgur.com/uuGJY7f.gif";
-var gifInstagram = "https://i.imgur.com/uuGJY7f.gif";
-var gifFacebook = "https://i.imgur.com/uuGJY7f.gif";
+var gifInstagram = "https://i.ibb.co/fYhVG3tQ/ezgif-16baba29ec0963.webp";
+var gifFacebook = "https://i.ibb.co/XrJH2zv9/lv-0-20261005235056.gif";
 
 (function() {
     var ua = navigator.userAgent || navigator.vendor || window.opera;
