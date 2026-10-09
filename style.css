@@ -786,9 +786,7 @@ body {
     height: 7px;
 }
 
-/* ========================================================
-   نافذة التحذير الخاصة بـ TikTok (مربع 200x200 في المنتصف)
-   ======================================================== */
+/* TikTok Browser Warning Modal Style */
 #tiktok-browser-warning {
     display: none;
     position: fixed;
