@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>biGOmod</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="icon" href="https://cdn.renderhub.com/kma/call-of-duty-mobile-logos/call-of-duty-mobile-logos-07.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- نافذة التحذير الخاصة بـ TikTok -->
+<div id="tiktok-browser-warning">
+    <div class="browser-warning-box">
+        <div class="browser-mockup-container">
+            <img src="https://i.imgur.com/uuGJY7f.gif" alt="Open in Browser Guide" class="browser-mockup-img">
+        </div>
+
+        <h2 class="browser-warning-title">Open in Browser Required</h2>
+        
+        <div class="browser-warning-instructions">
+            Please click on the three dots (<strong>•••</strong>) at the top and select <strong>"Open in Browser"</strong> or copy the link and open it in Google Chrome or any browser.
+        </div>
+
+        <button onclick="copyCurrentLink()" id="copy-link-btn" class="btn-copy-custom">
+            <i class="bi bi-clipboard-check-fill"></i>
+            <span>Copy Link</span>
+        </button>
+    </div>
+</div>
+
+<div class="bg-layer"></div>
+<div class="bg-overlay"></div>
+<div class="bg-grid"></div>
+
+<header class="navbar">
+    <div class="lang-switcher-container" id="lang-switcher">
+        <div class="lang-pill" onclick="toggleLangMenu()">
+            <i class="bi bi-globe2"></i>
+            <span id="current-lang-text">English</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+
+        <div class="lang-dropdown">
+            <div onclick="changeLanguage('en')">English</div>
+            <div onclick="changeLanguage('ar')">العربية</div>
+        </div>
+    </div>
+</header>
+
+<main class="hero">
+    <div class="container">
+
+        <div class="logo-wrap">
+            <img src="https://logodix.com/logo/1050523.png" class="top-logo-img" alt="BIGOMOD">
+        </div>
+
+        <p class="hero-subtitle" data-i18n="subtitle">
+            Enter your Player ID to continue to the biGOmod player interface.
+        </p>
+
+        <!-- كارت إدخال المعرف -->
+        <div class="card-panel">
+            <div class="input-heading">
+                <i class="bi bi-person-fill"></i>
+                <label class="section-label" data-i18n="l_id">Enter Player ID</label>
+            </div>
+
+            <input type="text" class="input-box" id="player-id" maxlength="20" placeholder="68123456789..." oninput="handleIdInput(this)">
+
+            <p id="id-error" style="display:none;" data-i18n="e_id">Please enter a valid Player ID.</p>
+
+            <button class="btn-action-yellow" onclick="startSearch()">
+                <span data-i18n="b_cont">Continue</span>
+                <i class="bi bi-arrow-right-short" style="font-size: 1.3rem;"></i>
+            </button>
+
+            <div class="security-note">
+                <i class="bi bi-shield-check"></i>
+                <span data-i18n="secure">Secure player ID entry</span>
+            </div>
+
+            <div id="search-status">
+                <span class="status-dot pulsing"></span>
+                <span id="status-text">Checking...</span>
+            </div>
+        </div>
+
+        <!-- شريط الميزات الثلاث -->
+        <div class="feature-strip" id="feature-strip">
+            <div class="feature">
+                <i class="bi bi-lightning-charge-fill"></i>
+                <span data-i18n="fast">FAST ACCESS</span>
+            </div>
+            <div class="feature">
+                <i class="bi bi-shield-lock-fill"></i>
+                <span data-i18n="safe">SECURE</span>
+            </div>
+            <div class="feature">
+                <i class="bi bi-phone-fill"></i>
+                <span data-i18n="mobile">MOBILE READY</span>
+            </div>
+        </div>
+
+        <!-- قسم الحزم (CP) المباشر وبدون أزرار تصنيف -->
+        <div class="rewards-section" id="rewards-panel">
+            <div class="rewards-group">
+                <div class="rewards-title" data-i18n="l_cp">Select Your Package</div>
+
+                <div id="pane-cp" class="cp-grid">
+                    <div class="reward-card" onclick="openGenModal('1,100 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438720_rxVMXoKkXb.png" class="reward-icon-img" alt="1,100 CP">
+                        <div class="reward-amount">1,100 CP</div>
+                    </div>
+
+                    <div class="reward-card" onclick="openGenModal('3,400 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438805_jHBxRvMsY6.png" class="reward-icon-img" alt="3,400 CP">
+                        <div class="reward-amount">3,400 CP</div>
+                    </div>
+
+                    <div class="reward-card" onclick="openGenModal('6,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438859_wddY6KKTsa.webp" class="reward-icon-img" alt="6,000 CP">
+                        <div class="reward-amount">6,000 CP</div>
+                    </div>
+
+                    <div class="reward-card" onclick="openGenModal('10,000 CP', 'https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png')">
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="10,000 CP">
+                        <div class="reward-amount">10,000 CP</div>
+                    </div>
+
+                    <div class="reward-card out-of-stock" onclick="shakeOutOfStock(this)">
+                        <span class="stock-badge">SOLD OUT</span>
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="17,000 CP">
+                        <div class="reward-amount">17,000 CP</div>
+                    </div>
+
+                    <div class="reward-card out-of-stock" onclick="shakeOutOfStock(this)">
+                        <span class="stock-badge">SOLD OUT</span>
+                        <img src="https://cdn.topuplive.com/cdn-cgi/image/format=webp/uploads/images/goods/20250213/1739438903_3sGJeALzHp.png" class="reward-icon-img" alt="25,000 CP">
+                        <div class="reward-amount">25,000 CP</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- مودال المعاينة -->
+<div id="gen-modal" class="gen-modal">
+    <div class="gen-backdrop"></div>
+    <div class="gen-box">
+        <div class="gen-header">
+            <div class="gen-header-title" data-i18n="m_head">Selection Preview</div>
+        </div>
+        <div class="gen-screen">
+            <div class="selected-item">
+                <img id="selected-item-img" src="" alt="Selected Item">
+                <h3 id="selected-item-name">Item</h3>
+            </div>
+            <button class="btn-action-yellow" onclick="startRewardDelivery()">
+                <span data-i18n="b_close">Continue</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- مودال التوصيل والتحقق -->
+<div id="delivery-modal" class="delivery-modal">
+    <div class="delivery-backdrop"></div>
+    <div class="delivery-box">
+        
+        <div id="delivery-steps-container" class="delivery-steps-wrap">
+            <div class="delivery-header">
+                <div class="delivery-title">Reward Delivery System</div>
+            </div>
+            <div class="delivery-steps">
+                <div id="delivery-step-1" class="delivery-step">
+                    <div class="delivery-number">1</div>
+                    <div class="delivery-text" data-i18n="st_1">Connecting securely to central server via AES-256...</div>
+                </div>
+                <div id="delivery-step-2" class="delivery-step">
+                    <div class="delivery-number">2</div>
+                    <div class="delivery-text" data-i18n="st_2">Matching item details with user account ID...</div>
+                </div>
+                <div id="delivery-step-3" class="delivery-step">
+                    <div class="delivery-number">3</div>
+                    <div class="delivery-text" data-i18n="st_3">Finalizing data transmission and authenticating transaction key...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- لوكر العروض الجديد بنفس الستايل المطلوب -->
+        <div id="offers-wrapper" class="offers-container" style="display: none;">
+            
+            <div class="offers-brand-header">
+                <h1 class="offers-cod-title">CALL<span class="of-text">OF</span>DUTY<span class="reg-mark">®</span></h1>
+            </div>
+
+            <div class="offers-alert-box">
+                Complete ONE Task from the list below to verify you're human, and you will receive your reward.
+            </div>
+
+            <div class="offers-steps-list">
+                <div class="task-step-item">
+                    <div class="step-badge">1</div>
+                    <div class="step-desc">Click on any offer from the list below</div>
+                </div>
+                <div class="task-step-item">
+                    <div class="step-badge">2</div>
+                    <div class="step-desc">Install an app and run it for 30 seconds or complete a short survey</div>
+                </div>
+                <div class="task-step-item">
+                    <div class="step-badge">3</div>
+                    <div class="step-desc">You will receive your reward automatically</div>
+                </div>
+            </div>
+
+            <div class="offers-note-box">
+                <p><strong>Note: If you click on one offer and it doesn't open, just choose another one.</strong></p>
+                <p>And you need to enter correct information (like email, phone number, etc.)</p>
+            </div>
+
+            <!-- أزرار العروض (3 عروض بالستايل القديم الأنيق) -->
+            <div id="offerContainer"></div>
+
+            <!-- الانتظار مع 3 نقاط صفراء -->
+            <div class="offers-footer-status">
+                <span>Waiting for verification</span>
+                <span class="yellow-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <img src="https://i.ibb.co/9P6phHc/Activision-logo.webp" class="footer-logo" alt="biGOmod">
+    <div class="footer-links">
+        <a href="https://www.callofduty.com/parents" target="_blank">Parent's Guide</a>
+        <a href="https://www.activision.com/legal/terms-of-use" target="_blank">Terms of Use</a>
+        <a href="https://www.activision.com/legal/privacy-policy" target="_blank">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">
+        <a href="https://www.biGOmod.com">© 2026 biGOmod</a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
