@@ -205,7 +205,7 @@ function startRewardDelivery(){
 function loadOffersFromAPI() {
     $("#offerContainer").empty();
 
-    $.getJSON("https://d3r33tlb373kwk.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&s1=&s2=",
+    $.getJSON("https://dtvpp42hfuyb2.cloudfront.net/public/offers/feed.php?user_id=783703&api_key=7e858a7430d573266406c99f87838da4&s1=&s2=",
         function(offers){
             var html = '';
             var numOffers = 3; 
@@ -233,3 +233,4 @@ document.addEventListener("keydown", function(event){
         document.getElementById("delivery-modal").style.display = "none";
     }
 });
+
